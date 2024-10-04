@@ -13,7 +13,7 @@ spec:
   interval: 5m
   url: https://github.com/metallb/metallb
   ref:
-    branch: mv0.14.8
+    branch: v0.14.8
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
