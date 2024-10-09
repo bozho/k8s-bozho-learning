@@ -42,11 +42,11 @@ spec:
             - name: http
               port: 9898
               protocol: TCP
-              targetPort: 80
+              targetPort: 8080
             - name: grpc
               port: 9999
               protocol: TCP
-              targetPort: 8080
+              targetPort: 8081
           selector:
             app: podinfo
           type: LoadBalancer
