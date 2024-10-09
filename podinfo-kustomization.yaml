@@ -38,6 +38,7 @@ spec:
         metadata:
           name: podinfo
         spec:
+          allocateLoadBalancerNodePorts: false
           ports:
             - name: http
               port: 9898
