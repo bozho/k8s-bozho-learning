@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
 - namespace.yaml
 #- metallb.yaml
-- https://github.com/metallb/metallb/config/native/kustomize.yaml?ref=v0.14.8
+#- https://github.com/metallb/metallb/config/native/kustomize.yaml?ref=v0.14.8
