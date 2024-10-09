@@ -29,22 +29,22 @@ spec:
   path: "./config/native"
   prune: true
   timeout: 1m
-#---
-#apiVersion: metallb.io/v1beta1
-#kind: IPAddressPool
-#metadata:
-#  name: first-pool
-#  namespace: metallb-system
-#spec:
-#  addresses:
-#  - 10.20.30.87/32
-#  - 10.20.30.88/32
-#  - 10.20.30.89/32
-#---
-#apiVersion: metallb.io/v1beta1
-#kind: L2Advertisement
-#metadata:
-#  name: example
-#  namespace: metallb-system
-#
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: first-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 10.20.30.87/32
+  - 10.20.30.88/32
+  - 10.20.30.89/32
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: example
+  namespace: metallb-system
+
 
