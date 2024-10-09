@@ -30,23 +30,6 @@ spec:
   prune: true
   timeout: 1m
 #---
-#apiVersion: metallb.io/v1beta1
-#kind: IPAddressPool
-#metadata:
-#  name: first-pool
-#  namespace: metallb-system
-#spec:
-#  addresses:
-#  - 10.20.30.207/32
-#  - 10.20.30.208/32
-#  - 10.20.30.209/32
-#---
-#apiVersion: metallb.io/v1beta1
-#kind: L2Advertisement
-#metadata:
-#  name: example
-#  namespace: metallb-system
-#---
 #apiVersion: v1
 #kind: ConfigMap
 #metadata:
@@ -62,3 +45,20 @@ spec:
 #        - 10.20.30.208/32
 #        - 10.20.30.209/32
 #
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: first-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 10.20.30.207/32
+  - 10.20.30.208/32
+  - 10.20.30.209/32
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: example
+  namespace: metallb-system
