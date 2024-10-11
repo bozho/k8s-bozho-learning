@@ -50,13 +50,13 @@ spec:
         spec:
           ports:
             - name: http
-              port: 9898
+              port: 8080
               protocol: TCP
-              targetPort: 8080
+              targetPort: http
             - name: grpc
-              port: 9999
+              port: 8081
               protocol: TCP
-              targetPort: 8081
+              targetPort: grpc
           selector:
             app: podinfo
           type: LoadBalancer
