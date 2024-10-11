@@ -1,0 +1,62 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: podinfo
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: master
+  url: https://github.com/stefanprodan/podinfo
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: podinfo
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: podinfo
+  namespace: flux-system
+spec:
+  interval: 30m0s
+  path: ./kustomize
+  prune: true
+  retryInterval: 2m0s
+  sourceRef:
+    kind: GitRepository
+    name: podinfo
+  targetNamespace: podinfo
+  timeout: 3m0s
+  wait: true
+  patches:
+#    - patch: |-
+#        apiVersion: autoscaling/v2
+#        kind: HorizontalPodAutoscaler
+#        metadata:
+#          name: podinfo
+#        spec:
+#          minReplicas: 3
+#      target:
+#        name: podinfo
+#        kind: HorizontalPodAutoscaler
+#    - patch: |-
+#        apiVersion: v1
+#        kind: Service
+#        metadata:
+#          name: podinfo
+#        spec:
+#          ports:
+#            - name: http
+#              port: 9898
+#              protocol: TCP
+#              targetPort: 8080
+#            - name: grpc
+#              port: 9999
+#              protocol: TCP
+#              targetPort: 8081
+#          selector:
+#            app: podinfo
+#          type: LoadBalancer
