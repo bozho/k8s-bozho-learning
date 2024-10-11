@@ -31,7 +31,7 @@ spec:
   targetNamespace: podinfo
   timeout: 3m0s
   wait: true
-  patches:
+#  patches:
 #    - patch: |-
 #        apiVersion: autoscaling/v2
 #        kind: HorizontalPodAutoscaler
@@ -42,15 +42,15 @@ spec:
 #      target:
 #        name: podinfo
 #        kind: HorizontalPodAutoscaler
-    - patch: |-
-        apiVersion: v1
-        kind: Service
-        metadata:
-          name: podinfo
-        spec:
-          selector:
-            app: podinfo
-          type: LoadBalancer
+#    - patch: |-
+#        apiVersion: v1
+#        kind: Service
+#        metadata:
+#          name: podinfo
+#        spec:
+#          selector:
+#            app: podinfo
+#          type: LoadBalancer
 #          ports:
 #            - name: http
 #              port: 8080
