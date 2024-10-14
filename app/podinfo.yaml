@@ -51,7 +51,10 @@ spec:
           selector:
             app: podinfo
           type: LoadBalancer
-    - patch: |
+    - target:
+      kind: Service
+      name: podinfo
+      patch: |
         - op: replace
           path:  /spec/ports
           value:
