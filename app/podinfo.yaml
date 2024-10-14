@@ -53,8 +53,16 @@ spec:
           type: LoadBalancer
     - patch: |
         - op: replace
-          path:  /spec/ports/0/port
-          value: 8080
+          path:  /spec/ports
+          value:
+            - name:       http
+              port:       8080
+              protocol:   TCP
+              targetPort: http
+            - name:       grpc
+              port:       8081
+              protocol:   TCP
+              targetPort: grpc
 #          ports:
 #            - name:       http
 #              port:       8080
