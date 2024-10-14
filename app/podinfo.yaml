@@ -54,17 +54,16 @@ spec:
     - target:
         kind:      Service
         name:      podinfo
-        namespace: podinfo
       patch: |
         - op: replace
           path:  /spec/ports
           value:
             - name:       http
-              port:       8080
+              port:       8081
               protocol:   TCP
               targetPort: http
             - name:       grpc
-              port:       8081
+              port:       8082
               protocol:   TCP
               targetPort: grpc
 #          ports:
