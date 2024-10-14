@@ -51,6 +51,10 @@ spec:
           selector:
             app: podinfo
           type: LoadBalancer
+    - patch: |
+      - op: replace
+        path:  /spec/ports/0/port
+        value: 8080
 #          ports:
 #            - name:       http
 #              port:       8080
