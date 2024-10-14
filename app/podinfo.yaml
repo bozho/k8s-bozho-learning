@@ -32,17 +32,20 @@ spec:
   timeout: 3m0s
   wait: true
   patches:
-#    - patch: |-
-#        apiVersion: autoscaling/v2
-#        kind: HorizontalPodAutoscaler
-#        metadata:
-#          name: podinfo
-#        spec:
-#          minReplicas: 3
-#      target:
-#        name: podinfo
-#        kind: HorizontalPodAutoscaler
-    - patch: |-
+    - target:
+        name: podinfo
+        kind: HorizontalPodAutoscaler
+      patch: |-
+        apiVersion: autoscaling/v2
+        kind: HorizontalPodAutoscaler
+        metadata:
+          name: podinfo
+        spec:
+          minReplicas: 3
+    - target:
+        name:      podinfo
+        kind:      Service
+      patch: |-
         apiVersion: v1
         kind: Service
         metadata:
@@ -52,8 +55,8 @@ spec:
             app: podinfo
           type: LoadBalancer
     - target:
-        kind:      Service
         name:      podinfo
+        kind:      Service
       patch: |
         - op: replace
           path:  /spec/ports
@@ -66,12 +69,3 @@ spec:
               port:       8081
               protocol:   TCP
               targetPort: grpc
-#          ports:
-#            - name:       http
-#              port:       8080
-#              protocol:   TCP
-#              targetPort: http
-#            - name:       grpc
-#              port:       8081
-#              protocol:   TCP
-#              targetPort: grpc
