@@ -1,3 +1,19 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: default
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx
+  type: LoadBalancer
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -22,21 +38,13 @@ spec:
             limits:
               memory: "128Mi"
               cpu:    "500m"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx
-  namespace: default
-spec:
-  ports:
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: 80
-  selector:
-    app: nginx
-  type: LoadBalancer
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /usr/share/nginx/html #nginx specific
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: nginx-index
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
