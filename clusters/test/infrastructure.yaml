@@ -34,7 +34,7 @@ spec:
   patches:
     - target:
         name: elasticsearch-data
-        kind: PersistenVolume
+        kind: PersistentVolume
       patch: |-
         apiVersion: v1
         kind: PersistentVolume
