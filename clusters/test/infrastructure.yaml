@@ -39,13 +39,13 @@ spec:
         apiVersion: v1
         kind: PersistentVolume
         spec:
-        nodeAffinity:
-          required:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: kubernetes.io/hostname
-                    operator: In
-                    values:
-                      - k8s-bozho-wrk-01
-                      - k8s-bozho-wrk-02
-                      - k8s-bozho-wrk-03
+          nodeAffinity:
+            required:
+              nodeSelectorTerms:
+                - matchExpressions:
+                    - key: kubernetes.io/hostname
+                      operator: In
+                      values:
+                        - k8s-bozho-wrk-01
+                        - k8s-bozho-wrk-02
+                        - k8s-bozho-wrk-03
