@@ -38,6 +38,8 @@ spec:
       patch: |-
         apiVersion: v1
         kind: PersistentVolume
+        metadata:
+          name: elasticsearch-data
         spec:
           nodeAffinity:
             required:
