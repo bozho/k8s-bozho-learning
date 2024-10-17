@@ -4,3 +4,4 @@ resources:
   - nginx.yaml
   - podinfo.yaml
   - eck.yaml
+  - elastic.yaml
