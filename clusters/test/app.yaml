@@ -43,7 +43,4 @@ spec:
           name: quickstart-es-http
           namespace: elastic
         spec:
-          selector:
-            common.k8s.elastic.co/type: elasticsearch
-            elasticsearch.k8s.elastic.co/cluster-name: quickstart
           type: LoadBalancer
