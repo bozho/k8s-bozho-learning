@@ -11,6 +11,10 @@ metadata:
   namespace: elastic
 spec:
   version: 8.15.3
+  http:
+    service:
+      spec:
+        type: LoadBalancer
   nodeSets:
     - name: default
       count: 1

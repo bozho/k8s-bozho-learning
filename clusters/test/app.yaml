@@ -31,16 +31,3 @@ spec:
     name: flux-system
   path: ./app
   prune: true
-  patches:
-    - target:
-        name: quickstart-es-http
-        namespace: elastic
-        kind: Service
-      patch: |-
-        apiVersion: v1
-        kind: Service
-        metadata:
-          name: quickstart-es-http
-          namespace: elastic
-        spec:
-          type: LoadBalancer
