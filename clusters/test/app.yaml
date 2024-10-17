@@ -45,5 +45,5 @@ spec:
         spec:
           selector:
             common.k8s.elastic.co/type: elasticsearch
-            elasticsearch.k8s.elastic.co/cluster-name: quickstart 
+            elasticsearch.k8s.elastic.co/cluster-name: quickstart
           type: LoadBalancer
