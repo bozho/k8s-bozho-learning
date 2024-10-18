@@ -23,7 +23,7 @@ spec:
         xpack.ml.enabled: true
         node.store.allow_mmap: false
     - name: data
-      count: 10
+      count: 3
       config:
         node.roles: ["data", "ingest", "ml", "transform"]
         node.store.allow_mmap: false
