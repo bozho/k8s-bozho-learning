@@ -21,10 +21,9 @@ spec:
       config:
         node.roles: ["master"]
         xpack.ml.enabled: true
-        node.remote_cluster_client: false
+        node.store.allow_mmap: false
     - name: data
       count: 10
       config:
         node.roles: ["data", "ingest", "ml", "transform"]
-        node.remote_cluster_client: false
         node.store.allow_mmap: false
