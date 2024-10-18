@@ -16,14 +16,18 @@ spec:
       spec:
         type: LoadBalancer
   nodeSets:
-    - name: masters
-      count: 3
+    - name: default
+      count: 1
       config:
-        node.roles: ["master"]
-        xpack.ml.enabled: true
         node.store.allow_mmap: false
-    - name: data
-      count: 3
-      config:
-        node.roles: ["data", "ingest", "ml", "transform"]
-        node.store.allow_mmap: false
+#    - name: masters
+#      count: 3
+#      config:
+#        node.roles: ["master"]
+#        xpack.ml.enabled: true
+#        node.store.allow_mmap: false
+#    - name: data
+#      count: 3
+#      config:
+#        node.roles: ["data", "ingest", "ml", "transform"]
+#        node.store.allow_mmap: false
