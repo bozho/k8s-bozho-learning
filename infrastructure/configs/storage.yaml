@@ -30,4 +30,6 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-                - dummy
+                - k8s-bozho-wrk-01
+                - k8s-bozho-wrk-02
+                - k8s-bozho-wrk-03
