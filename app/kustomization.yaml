@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - nginx.yaml
   - podinfo.yaml
-#  - eck.yaml
-#  - elastic.yaml
+  - eck.yaml
+  - elastic.yaml
