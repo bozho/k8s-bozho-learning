@@ -4,3 +4,6 @@ kind: Kustomization
 components:
   - ../../_profiles/proxmox
 resources: []
+
+patchesStrategicMerge:
+  - metallb-patches.yaml
