@@ -29,4 +29,9 @@ spec:
   releaseName: local-static-provisioner
 
 #  serviceAccountName: kustomize-controller
-  values: {}
+  #values: {}
+  values:
+    classes:
+      - name: local-storage
+        hostDir: /mnt/disks
+        mountDir: /usr/share/elasticsearch/data
