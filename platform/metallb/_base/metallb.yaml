@@ -2,22 +2,22 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  #name: ${pool_name}
-  name: example
-  #namespace: ${namespace_name:=default}
-  namespace: metallb-system
+  name: ${pool_name}
+  namespace: ${namespace_name:=default}
+  #name: example
+  #namespace: metallb-system
 spec:
   addresses:
     - 10.20.30.207/32
-#    - 10.20.30.208/32
-#    - 10.20.30.209/32
+    - 10.20.30.208/32
+    - 10.20.30.209/32
 
-#---
-#apiVersion: metallb.io/v1beta1
-#kind: L2Advertisement
-#metadata:
-#  name: ${l2_advertisement_name:=main}
-#  namespace: ${namespace_name:=default}
-#spec:
-#  ipAddressPools:
-#    - ${pool_name}
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: ${l2_advertisement_name:=main}
+  namespace: ${namespace_name:=default}
+spec:
+  ipAddressPools:
+    - ${pool_name}
