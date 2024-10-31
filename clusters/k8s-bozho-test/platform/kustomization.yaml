@@ -7,11 +7,11 @@ resources:
   - metallb-config.yaml
 
 #patchesStrategicMerge:
-#patches:
-##  - path: metallb-patches.yaml
-#  - path: storage-patches.yaml
-#    target:
-#      kind: HelmRelease
-#      name: local-static-provisioner
-#      namespace: flux-system
+patches:
+#  - path: metallb-patches.yaml
+  - path: storage-patches.yaml
+    target:
+      kind: HelmRelease
+      name: local-static-provisioner
+      namespace: flux-system
 

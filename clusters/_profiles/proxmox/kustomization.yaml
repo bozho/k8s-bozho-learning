@@ -5,4 +5,4 @@ components:
   - ../_base
 resources:
   - metallb.yaml
-#  - storage.yaml
+  - storage.yaml
