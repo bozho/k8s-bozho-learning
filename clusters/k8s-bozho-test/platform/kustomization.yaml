@@ -11,5 +11,6 @@ patches:
 #  - path: metallb-patches.yaml
   - path: storage-patches.yaml
     target:
+      kind: HelmRelease
       name: local-static-provisioner
       namespace: flux-system
