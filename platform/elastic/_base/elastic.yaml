@@ -1,0 +1,28 @@
+---
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: ${elastic_name}
+  namespace: ${namespace_name}
+spec:
+  version: 8.15.3
+  http:
+    service:
+      spec:
+        type: LoadBalancer
+  nodeSets:
+    - name: default
+      count: 3
+      config:
+        node.store.allow_mmap: false
+#    - name: masters
+#      count: 3
+#      config:
+#        node.roles: ["master"]
+#        xpack.ml.enabled: true
+#        node.store.allow_mmap: false
+#    - name: data
+#      count: 3
+#      config:
+#        node.roles: ["data", "ingest", "ml", "transform"]
+#        node.store.allow_mmap: false
