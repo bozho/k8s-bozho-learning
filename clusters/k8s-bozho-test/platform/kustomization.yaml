@@ -7,5 +7,6 @@ resources:
   - metallb-config.yaml
 
 #patchesStrategicMerge:
-#patches:
+patches:
 #  - path: metallb-patches.yaml
+  - path: storage-patches.yaml

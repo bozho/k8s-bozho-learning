@@ -1,0 +1,12 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: local-static-provisioner
+spec:
+  values:
+    classes:
+      - name: local-storage
+        hostDir: /mnt/disks
+        mountDir: /usr/share/elasticsearch/data
+  namespace: flux-system
