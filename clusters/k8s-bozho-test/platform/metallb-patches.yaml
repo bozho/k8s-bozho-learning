@@ -7,11 +7,12 @@ metadata:
 spec:
   patches:
     - target:
+        apiVersion: metallb.io/v1beta1
         kind: IPAddressPool
         #name: ${pool_name}
         #namespace: ${namespace_name:=default}
-        name: example
-        namespace: metallb-system
+        #name: example
+        #namespace: metallb-system
       patch: |-
         apiVersion: metallb.io/v1beta1
         kind: IPAddressPool
