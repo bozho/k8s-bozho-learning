@@ -16,8 +16,8 @@ metadata:
 spec:
   interval: 10m
   timeout: 5m
+  targetNamespace: ${namespace_name:=default}
   chart:
-    targetNamespace: ${namespace_name:=default}
     spec:
       chart: eck-operator
 #      version: '6.5.*'
