@@ -11,11 +11,11 @@ spec:
 #    - 10.20.30.209/32
 
 ---
-apiVersion: metallb.io/v1beta1
-kind: L2Advertisement
-metadata:
-  name: ${l2_advertisement_name:=main}
-  namespace: ${namespace_name:=default}
-spec:
-  ipAddressPools:
-    - ${pool_name}
+#apiVersion: metallb.io/v1beta1
+#kind: L2Advertisement
+#metadata:
+#  name: ${l2_advertisement_name:=main}
+#  namespace: ${namespace_name:=default}
+#spec:
+#  ipAddressPools:
+#    - ${pool_name}
