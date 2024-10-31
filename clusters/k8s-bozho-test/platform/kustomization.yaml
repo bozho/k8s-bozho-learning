@@ -8,10 +8,13 @@ resources:
 
 #patchesStrategicMerge:
 patches:
-#  - path: metallb-patches.yaml
+  - path: metallb-patches.yaml
+    target:
+      kind: IPAddressPool
+      name: example
+      namespace: metallb-system
   - path: storage-patches.yaml
     target:
       kind: HelmRelease
       name: local-static-provisioner
       namespace: flux-system
-
