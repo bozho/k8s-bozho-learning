@@ -6,4 +6,4 @@ metadata:
   namespace:  flux-system
 data:
     pool_name: example
-    l2_advertisement_name: the_boss
+    l2_advertisement_name: the-boss
