@@ -8,16 +8,18 @@ spec:
   patches:
     - target:
         kind: IPAddressPool
-        name: ${pool_name}
-        namespace: ${namespace_name:=default}
+        #name: ${pool_name}
+        #namespace: ${namespace_name:=default}
+        name: example
+        namespace: metallb-system
       patch: |-
         apiVersion: metallb.io/v1beta1
         kind: IPAddressPool
         metadata:
-          name: ${pool_name}
-          namespace: ${namespace_name:=default}
+          name: example
+          namespace: metallb-system
         spec:
-          addresses: []
+          addresses:
             - 10.20.30.207/32
             - 10.20.30.208/32
             - 10.20.30.209/32
