@@ -6,9 +6,9 @@ components:
 resources:
   - metallb-config.yaml
 
-patchesStrategicMerge:
-  - metallb-patches.yaml
-  - storage-patches.yaml
+#patchesStrategicMerge:
+#  - metallb-patches.yaml
+#  - storage-patches.yaml
 #patches:
 #  - path: metallb-patches.yaml
 #    target:

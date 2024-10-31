@@ -29,6 +29,10 @@ spec:
   releaseName: local-static-provisioner
 
 #  serviceAccountName: kustomize-controller
+  valuesFrom:
+    - kind: ConfigMap
+      name: local-storage-config
+      optional: true
   values: {}
 #  values:
 #    classes:
