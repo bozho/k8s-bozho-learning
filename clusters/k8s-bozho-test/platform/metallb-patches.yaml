@@ -1,26 +1,41 @@
 ---
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
 metadata:
-  name: metallb-patches
-  namespace: flux-system
+  name: ${pool_name}
+  namespace: ${namespace_name}
 spec:
-  patches:
-    - target:
-        name: example
-        kind: IPAddressPool
-        #name: ${pool_name}
-        #namespace: ${namespace_name:=default}
-        #name: example
-        #namespace: metallb-system
-      patch: |-
-        apiVersion: metallb.io/v1beta1
-        kind: IPAddressPool
-        metadata:
-          name: example
-          namespace: metallb-system
-        spec:
-          addresses:
-            - 10.20.30.207/32
-            - 10.20.30.208/32
-            - 10.20.30.209/32
+  addresses:
+    - 10.20.30.207/32
+    - 10.20.30.208/32
+    - 10.20.30.209/32
+
+
+
+#---
+#apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+#kind: Kustomization
+#metadata:
+#  name: metallb-patches
+#  namespace: flux-system
+#spec:
+#  patches:
+#    - target:
+#        name: example
+#        kind: IPAddressPool
+#        #name: ${pool_name}
+#        #namespace: ${namespace_name:=default}
+#        #name: example
+#        #namespace: metallb-system
+#      patch: |-
+#        apiVersion: metallb.io/v1beta1
+#        kind: IPAddressPool
+#        metadata:
+#          name: example
+#          namespace: metallb-system
+#        spec:
+#          addresses:
+#            - 10.20.30.207/32
+#            - 10.20.30.208/32
+#            - 10.20.30.209/32
+#
