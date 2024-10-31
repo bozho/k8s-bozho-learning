@@ -42,5 +42,4 @@ spec:
     substituteFrom:
       - kind: ConfigMap
         name: metallb-config
-        namespace: metallb-system
 #        optional: true
