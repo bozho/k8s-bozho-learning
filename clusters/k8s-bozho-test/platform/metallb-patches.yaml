@@ -2,8 +2,8 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: example
-  namespace: metallb-system
+  namespace: example
+  name: metallb-system
 spec:
   addresses:
     - 10.20.30.207/32
