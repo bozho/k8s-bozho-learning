@@ -2,7 +2,7 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  #name: example
+  name: example
   #namespace: metallb-system
 #  name: ${pool_name}
 #  namespace: ${namespace_name:=default}
