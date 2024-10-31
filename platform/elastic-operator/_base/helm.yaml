@@ -17,6 +17,7 @@ spec:
   interval: 10m
   timeout: 5m
   chart:
+    targetNamespace: ${namespace_name:=default}
     spec:
       chart: eck-operator
 #      version: '6.5.*'
