@@ -10,3 +10,6 @@ resources:
 patches:
 #  - path: metallb-patches.yaml
   - path: storage-patches.yaml
+    target:
+      name: local-static-provisioner
+      namespace: flux-system
