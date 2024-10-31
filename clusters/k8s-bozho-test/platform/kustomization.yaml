@@ -14,3 +14,4 @@ patches:
       kind: HelmRelease
       name: local-static-provisioner
       namespace: flux-system
+
