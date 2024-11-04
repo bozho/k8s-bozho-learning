@@ -15,7 +15,7 @@ patches:
       group: metallb.io
       kind: IPAddressPool
       name: example
-      namespace: metallb-system
+#      namespace: metallb-system
     patch: |-
       apiVersion: metallb.io/v1beta1
       kind: IPAddressPool
