@@ -8,6 +8,8 @@ components:
 
 patches:
   - target:
+      group: autoscaling
+      version: v2
       name: podinfo
       kind: HorizontalPodAutoscaler
     patch: |-
