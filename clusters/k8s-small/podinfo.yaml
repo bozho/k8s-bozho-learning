@@ -12,7 +12,7 @@ spec:
 #  serviceAccountName: kustomize-controller
   path: ./platform/podinfo/_base
   prune: true
-#  wait: true
+  wait: true
   timeout: 5m
 #  postBuild:
 #    substitute:
