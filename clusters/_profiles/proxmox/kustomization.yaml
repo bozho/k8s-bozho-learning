@@ -7,3 +7,18 @@ resources:
   - metallb.yaml
   - storage-config.yaml
   - storage.yaml
+
+patches:
+  - target:
+#      version: v1beta1
+#      group: metallb.io
+      kind: IPAddressPool
+      name: example
+#      namespace: metallb-system
+    patch: |-
+      - op: replace
+        path: /spec/addresses
+        value: |-
+          - 10.10.10.27/32
+          - 10.10.10.28/32
+          - 10.10.10.29/32

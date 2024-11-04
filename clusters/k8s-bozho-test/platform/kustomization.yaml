@@ -6,46 +6,46 @@ components:
 resources:
   - metallb-config.yaml
 
-#patchesStrategicMerge:
-#  - metallb-patches.yaml
-#  - storage-patches.yaml
-patches:
+##patchesStrategicMerge:
+##  - metallb-patches.yaml
+##  - storage-patches.yaml
+#patches:
+##  - target:
+##      #version: v1beta1
+##      #group: metallb.io
+##      kind: IPAddressPool
+##      name: example
+###      namespace: metallb-system
+##    patch: |-
+##      apiVersion: metallb.io/v1beta1
+##      kind: IPAddressPool
+##      metadata:
+##        name: example
+##        namespace: metallb-system
+##      spec:
+##        addresses:
+##          - 10.20.30.207/32
+##          - 10.20.30.208/32
+##          - 10.20.30.209/32
+#
+##  - path: metallb-patches.yaml
 #  - target:
-#      #version: v1beta1
-#      #group: metallb.io
+##      version: v1beta1
+##      group: metallb.io
 #      kind: IPAddressPool
 #      name: example
 ##      namespace: metallb-system
 #    patch: |-
-#      apiVersion: metallb.io/v1beta1
-#      kind: IPAddressPool
-#      metadata:
-#        name: example
-#        namespace: metallb-system
-#      spec:
-#        addresses:
-#          - 10.20.30.207/32
-#          - 10.20.30.208/32
-#          - 10.20.30.209/32
-
-#  - path: metallb-patches.yaml
-  - target:
-#      version: v1beta1
-#      group: metallb.io
-      kind: IPAddressPool
-      name: example
-#      namespace: metallb-system
-    patch: |-
-      - op: replace
-        path: /spec/addresses
-        value: |-
-          - 10.10.10.27/32
-          - 10.10.10.28/32
-          - 10.10.10.29/32
-
-
-#  - path: storage-patches.yaml
-#    target:
-#      kind: HelmRelease
-#      name: local-static-provisioner
-#      namespace: flux-system
+#      - op: replace
+#        path: /spec/addresses
+#        value: |-
+#          - 10.10.10.27/32
+#          - 10.10.10.28/32
+#          - 10.10.10.29/32
+#
+#
+##  - path: storage-patches.yaml
+##    target:
+##      kind: HelmRelease
+##      name: local-static-provisioner
+##      namespace: flux-system
