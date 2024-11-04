@@ -11,12 +11,12 @@ resources:
 #  - storage-patches.yaml
 patches:
   - path: metallb-patches.yaml
-    target:
-      version: v1beta1
-      group: metallb.io
-      kind: IPAddressPool
-      name: example2
-      namespace: metallb-system
+#    target:
+#      version: v1beta1
+#      group: metallb.io
+#      kind: IPAddressPool
+#      name: example2
+#      namespace: metallb-system
 #  - path: storage-patches.yaml
 #    target:
 #      kind: HelmRelease
