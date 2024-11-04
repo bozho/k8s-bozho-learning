@@ -15,7 +15,7 @@ patchesJson6902:
       group: metallb.io
       kind: IPAddressPool
       name: exampless
-#      namespace: metallb-system
+      namespace: metallb-system
     patch: |-
       - op: replace
         path: /spec/addresses
