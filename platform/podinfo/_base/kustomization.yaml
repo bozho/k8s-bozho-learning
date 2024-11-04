@@ -6,17 +6,17 @@ resources:
 components:
   - "../../_components/namespace"
 
-patches:
-  - target:
-      group: autoscaling
-      version: v2
-      name: podinfo
-      namespace: podinfo
-      kind: HorizontalPodAutoscaler
-    patch: |-
-      apiVersion: autoscaling/v2
-      kind: HorizontalPodAutoscaler
-      metadata:
-        name: podinfo
-      spec:
-        minReplicas: 3
+#patches:
+#  - target:
+#      group: autoscaling
+#      version: v2
+#      name: podinfo
+#      namespace: podinfo
+#      kind: HorizontalPodAutoscaler
+#    patch: |-
+#      apiVersion: autoscaling/v2
+#      kind: HorizontalPodAutoscaler
+#      metadata:
+#        name: podinfo
+#      spec:
+#        minReplicas: 3
