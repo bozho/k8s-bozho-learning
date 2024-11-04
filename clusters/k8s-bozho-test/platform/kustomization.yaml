@@ -14,13 +14,13 @@ patches:
       version: v1beta1
       group: metallb.io
       kind: IPAddressPool
-      name: example
+      name: examplew
       namespace: metallb-system
     patch: |-
       apiVersion: metallb.io/v1beta1
       kind: IPAddressPool
       metadata:
-        name: example
+        name: example2
         namespace: metallb-system
       spec:
         addresses:
