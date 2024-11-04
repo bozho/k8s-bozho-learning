@@ -9,11 +9,11 @@ patchesJson6902:
       version: v1beta1
       group: metallb.io
       kind: IPAddressPool
-#      name: example
-#      namespace: metallb-system
+      name: example2
+      namespace: metallb-system
 
-      name: ${pool_name}
-      namespace: ${namespace_name:=default}
+#      name: ${pool_name}
+#      namespace: ${namespace_name:=default}
     patch: |-
       - op: replace
         path: /spec/addresses
