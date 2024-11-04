@@ -11,6 +11,7 @@ patches:
       group: autoscaling
       version: v2
       name: podinfo
+      namespace: podinfo
       kind: HorizontalPodAutoscaler
     patch: |-
       apiVersion: autoscaling/v2
