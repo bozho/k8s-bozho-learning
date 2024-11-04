@@ -15,7 +15,7 @@ patches:
       version: v1beta1
       group: metallb.io
       kind: IPAddressPool
-      name: example
+      name: example2
       namespace: metallb-system
 #  - path: storage-patches.yaml
 #    target:
