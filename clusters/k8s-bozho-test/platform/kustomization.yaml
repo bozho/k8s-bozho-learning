@@ -9,12 +9,12 @@ resources:
 #patchesStrategicMerge:
 #  - metallb-patches.yaml
 #  - storage-patches.yaml
-#patches:
-#  - path: metallb-patches.yaml
-#    target:
-#      kind: IPAddressPool
-#      name: example
-#      namespace: metallb-system
+patches:
+  - path: metallb-patches.yaml
+    target:
+      kind: IPAddressPool
+      name: example
+      namespace: metallb-system
 #  - path: storage-patches.yaml
 #    target:
 #      kind: HelmRelease
