@@ -14,7 +14,7 @@ patchesJson6902:
       version: v1beta1
       group: metallb.io
       kind: IPAddressPool
-      name: example
+      name: exampless
 #      namespace: metallb-system
     patch: |-
       - op: replace
