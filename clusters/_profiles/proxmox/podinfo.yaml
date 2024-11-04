@@ -11,8 +11,8 @@ spec:
     name: flux-system
 #  serviceAccountName: kustomize-controller
   path: ./platform/podinfo/_base
-  prune: true
-  wait: true
+#  prune: true
+#  wait: true
   timeout: 5m
   postBuild:
     substitute:
