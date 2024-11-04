@@ -20,7 +20,7 @@ patches:
       apiVersion: metallb.io/v1beta1
       kind: IPAddressPool
       metadata:
-        name: example2
+        name: example
         namespace: metallb-system
       spec:
         addresses:
