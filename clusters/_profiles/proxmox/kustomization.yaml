@@ -8,10 +8,11 @@ resources:
   - storage-config.yaml
   - storage.yaml
 
-patches:
+#patches:
+patchesJson6902:
   - target:
-#      version: v1beta1
-#      group: metallb.io
+      version: v1beta1
+      group: metallb.io
       kind: IPAddressPool
       name: example
 #      namespace: metallb-system
