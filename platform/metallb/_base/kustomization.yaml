@@ -10,7 +10,7 @@ patchesJson6902:
       group: metallb.io
       kind: IPAddressPool
       name: example2
-      namespace: metallb-system
+#      namespace: metallb-system
 
 #      name: ${pool_name}
 #      namespace: ${namespace_name:=default}
