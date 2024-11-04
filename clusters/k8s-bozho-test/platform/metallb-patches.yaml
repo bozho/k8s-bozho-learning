@@ -1,16 +1,27 @@
 ---
-apiVersion: metallb.io/v1beta1
-kind: IPAddressPool
-metadata:
-  name: example
-  namespace: metallb-system
-#  name: ${pool_name}
-#  namespace: ${namespace_name:=default}
-spec:
-  addresses:
-    - 10.20.30.207/32
-    - 10.20.30.208/32
-    - 10.20.30.209/32
+- op: replace
+  path: /spec/addresses
+  value:
+    - 10.10.10.27/32
+    - 10.10.10.28/32
+    - 10.10.10.29/32
+
+
+
+
+#---
+#apiVersion: metallb.io/v1beta1
+#kind: IPAddressPool
+#metadata:
+#  name: example
+#  namespace: metallb-system
+##  name: ${pool_name}
+##  namespace: ${namespace_name:=default}
+#spec:
+#  addresses:
+#    - 10.20.30.207/32
+#    - 10.20.30.208/32
+#    - 10.20.30.209/32
 
 
 

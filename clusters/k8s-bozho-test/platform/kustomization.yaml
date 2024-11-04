@@ -10,31 +10,31 @@ resources:
 #  - metallb-patches.yaml
 #  - storage-patches.yaml
 patches:
-  - target:
-      #version: v1beta1
-      #group: metallb.io
+#  - target:
+#      #version: v1beta1
+#      #group: metallb.io
+#      kind: IPAddressPool
+#      name: example
+##      namespace: metallb-system
+#    patch: |-
+#      apiVersion: metallb.io/v1beta1
+#      kind: IPAddressPool
+#      metadata:
+#        name: example
+#        namespace: metallb-system
+#      spec:
+#        addresses:
+#          - 10.20.30.207/32
+#          - 10.20.30.208/32
+#          - 10.20.30.209/32
+
+  - path: metallb-patches.yaml
+    target:
+      version: v1beta1
+      group: metallb.io
       kind: IPAddressPool
       name: example
-#      namespace: metallb-system
-    patch: |-
-      apiVersion: metallb.io/v1beta1
-      kind: IPAddressPool
-      metadata:
-        name: example
-        namespace: metallb-system
-      spec:
-        addresses:
-          - 10.20.30.207/32
-          - 10.20.30.208/32
-          - 10.20.30.209/32
-
-#  - path: metallb-patches.yaml
-#    target:
-#      version: v1beta1
-#      group: metallb.io
-#      kind: IPAddressPool
-#      name: example2
-#      namespace: metallb-system
+      namespace: metallb-system
 #  - path: storage-patches.yaml
 #    target:
 #      kind: HelmRelease
