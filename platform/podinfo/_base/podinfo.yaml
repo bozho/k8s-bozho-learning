@@ -18,7 +18,7 @@ metadata:
 spec:
   interval: 30m0s
   path: ./kustomize
-  prune: false # WHY IS THIS DELETING THE RESOURCES WHEN SET TO TRUE?????
+  prune: true
   retryInterval: 2m0s
   sourceRef:
     kind: GitRepository
