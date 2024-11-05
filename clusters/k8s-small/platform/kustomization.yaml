@@ -4,6 +4,18 @@ kind: Kustomization
 resources:
   - podinfo.yaml
 
+patches:
+  - target:
+      name: podinfo
+      kind: HorizontalPodAutoscaler
+    patch: |-
+      apiVersion: autoscaling/v2
+      kind: HorizontalPodAutoscaler
+      metadata:
+        name: podinfo
+      spec:
+        minReplicas: 3
+
 ##patchesStrategicMerge:
 ##  - metallb-patches.yaml
 ##  - storage-patches.yaml
