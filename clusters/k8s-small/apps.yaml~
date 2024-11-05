@@ -1,10 +1,10 @@
----
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-metadata:
-  name: uga
-resources:
-  - podinfo.yaml
+#---
+#apiVersion: kustomize.config.k8s.io/v1beta1
+#kind: Kustomization
+#metadata:
+#  name: uga
+#resources:
+#  - podinfo.yaml
 
 ##patchesStrategicMerge:
 ##  - metallb-patches.yaml
