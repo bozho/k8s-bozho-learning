@@ -8,10 +8,10 @@ resources:
 
 patches:
   - target:
-      group: autoscaling
-      version: v2
+      #group: autoscaling
+      #version: v2
       name: podinfo
-#      namespace: podinfo
+      #namespace: default
       kind: HorizontalPodAutoscaler
     patch: |-
       apiVersion: autoscaling/v2
