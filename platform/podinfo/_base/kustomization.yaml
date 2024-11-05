@@ -12,13 +12,13 @@ patches:
       version: v1
       name: podinfo
       kind: Kustomization
-    patch: |-
+    patch: |
       spec:
         patches:
           - target:
               name: podinfo
               kind: HorizontalPodAutoscaler
-            patch: |-
+            patch: |
               apiVersion: autoscaling/v2
               kind: HorizontalPodAutoscaler
               metadata:
