@@ -6,25 +6,25 @@ resources:
 #components:
 #  - "../../_components/namespace"
 
-patches:
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      version: v1
-      name: podinfo
-      kind: Kustomization
-    patch: |-
-      spec:
-        patches:
-          - target:
-              name: podinfo
-              kind: HorizontalPodAutoscaler
-            patch: |-
-              apiVersion: autoscaling/v2
-              kind: HorizontalPodAutoscaler
-              metadata:
-                name: podinfo
-              spec:
-                minReplicas: 4
+#patches:
+#  - target:
+#      group: kustomize.toolkit.fluxcd.io
+#      version: v1
+#      name: podinfo
+#      kind: Kustomization
+#    patch: |-
+#      spec:
+#        patches:
+#          - target:
+#              name: podinfo
+#              kind: HorizontalPodAutoscaler
+#            patch: |-
+#              apiVersion: autoscaling/v2
+#              kind: HorizontalPodAutoscaler
+#              metadata:
+#                name: podinfo
+#              spec:
+#                minReplicas: 4
 
 #  - target:
 #      #group: autoscaling
