@@ -18,17 +18,17 @@ spec:
 #    substitute:
 #      namespace_name: podinfo
 
-  patches:
-    - target:
-        name: podinfo2
-        kind: HorizontalPodAutoscaler
-      patch: |-
-        apiVersion: autoscaling/v2
-        kind: HorizontalPodAutoscaler
-        metadata:
-          name: podinfo3
-        spec:
-          minReplicas: 3
+#  patches:
+#    - target:
+#        name: podinfo2
+#        kind: HorizontalPodAutoscaler
+#      patch: |-
+#        apiVersion: autoscaling/v2
+#        kind: HorizontalPodAutoscaler
+#        metadata:
+#          name: podinfo3
+#        spec:
+#          minReplicas: 3
 
 #---
 #apiVersion: source.toolkit.fluxcd.io/v1
