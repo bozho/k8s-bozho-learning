@@ -32,7 +32,7 @@ spec:
   patches:
     - target:
         name: podinfo
-        #namespace: podinfo
+        namespace: podinfo
         kind: HorizontalPodAutoscaler
       patch: |-
         apiVersion: autoscaling/v2
