@@ -35,7 +35,7 @@ patches:
                         name: podinfo
                       spec:
                         minReplicas: 2
-                        maxReplicas: 5
+                        maxReplicas: 6
 
 ##patchesStrategicMerge:
 ##  - metallb-patches.yaml
