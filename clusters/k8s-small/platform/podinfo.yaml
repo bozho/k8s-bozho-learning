@@ -40,7 +40,7 @@ spec:
                   namespace: podinfo
                 spec:
                   minReplicas: 2
-                  maxReplicas: 3
+                  maxReplicas: 5
 
 
 #  patches:
