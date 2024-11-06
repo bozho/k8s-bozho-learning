@@ -14,15 +14,16 @@ spec:
   prune: true
   wait: true
   timeout: 5m
-#  postBuild:
-#    substitute:
-#      namespace_name: podinfo
+  postBuild:
+    substitute:
+      namespace_name: podinfo
 
 
   patches:
     - target:
         kind: Kustomization
         name: podinfo
+        namespace: podinfo
       patch: |-
         kind: Kustomization
         metadata:
@@ -30,13 +31,15 @@ spec:
         spec:
           patches:
             - target:
-                name: podinfo
                 kind: HorizontalPodAutoscaler
+                name: podinfo
+                namespace: podinfo
               patch: |-
                 apiVersion: autoscaling/v2
                 kind: HorizontalPodAutoscaler
                 metadata:
                   name: podinfo
+                  namespace: podinfo
                 spec:
                   minReplicas: 2
                   maxReplicas: 3

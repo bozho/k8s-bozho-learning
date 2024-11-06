@@ -23,8 +23,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: podinfo
-  #targetNamespace: ${namespace_name:=default}
-  targetNamespace: default
+  targetNamespace: ${namespace_name:=default}
   timeout: 3m0s
   wait: true
 
