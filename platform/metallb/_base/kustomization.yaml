@@ -4,6 +4,20 @@ kind: Kustomization
 resources:
   - metallb.yaml
 
+patches:
+  - target:
+      kind: IPAddressPool
+      name: example
+    patch: |-
+      kind: IPAddressPool
+      metadata:
+        name: example
+      spec:
+        addresses:
+          - 10.10.10.207/32
+          - 10.10.10.208/32
+          - 10.10.10.209/32
+
 #patchesJson6902:
 #  - target:
 #      version: v1beta1
