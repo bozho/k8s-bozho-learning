@@ -32,6 +32,7 @@ spec:
             - target:
                 kind: HorizontalPodAutoscaler
                 name: podinfo
+                namespace: ${namespace_name}
               patch: |-
                 apiVersion: autoscaling/v2
                 kind: HorizontalPodAutoscaler
@@ -40,7 +41,7 @@ spec:
                   namespace: ${namespace_name}
                 spec:
                   minReplicas: 2
-                  maxReplicas: 6
+                  maxReplicas: 7
 
 
 #  patches:
