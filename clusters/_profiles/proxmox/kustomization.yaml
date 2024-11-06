@@ -9,6 +9,7 @@ resources:
   - storage.yaml
   - podinfo.yaml
 
+
 #patches:
 #patchesJson6902:
 #  - target:
