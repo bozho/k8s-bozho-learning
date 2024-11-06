@@ -12,8 +12,32 @@ spec:
 #  serviceAccountName: kustomize-controller
   path: ./platform/podinfo/_base
   prune: false
-#  wait: true
+  wait: true
   timeout: 5m
   postBuild:
     substitute:
       namespace_name: podinfo
+
+  patches:
+    - target:
+        kind: Kustomization
+        name: podinfo
+      patch: |-
+        kind: Kustomization
+        metadata:
+          name: podinfo
+        spec:
+          patches:
+            - target:
+                kind: HorizontalPodAutoscaler
+                name: podinfo
+                namespace: podinfo
+              patch: |-
+                apiVersion: autoscaling/v2
+                kind: HorizontalPodAutoscaler
+                metadata:
+                  name: podinfo
+                  namespace: ${namespace_name}
+                spec:
+                  minReplicas: 2
+                  maxReplicas: 7
