@@ -16,15 +16,16 @@ patches:
 #          - 10.10.10.28/32
 #          - 10.10.10.29/32
     patch: |-
+      apiVersion: metallb.io/v1beta1
       kind: IPAddressPool
       metadata:
         name: ${pool_name}
       spec:
         avoidBuggyIPs: true
-#        addresses:
-#          - 10.10.10.207/32
-#          - 10.10.10.208/32
-#          - 10.10.10.209/32
+        addresses:
+          - 10.10.10.207/32
+          - 10.10.10.208/32
+          - 10.10.10.209/32
 
 #patchesJson6902:
 #  - target:
