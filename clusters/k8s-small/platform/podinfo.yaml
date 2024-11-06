@@ -23,7 +23,6 @@ spec:
     - target:
         kind: Kustomization
         name: podinfo
-        namespace: podinfo
       patch: |-
         kind: Kustomization
         metadata:
@@ -33,13 +32,11 @@ spec:
             - target:
                 kind: HorizontalPodAutoscaler
                 name: podinfo
-                namespace: podinfo
               patch: |-
                 apiVersion: autoscaling/v2
                 kind: HorizontalPodAutoscaler
                 metadata:
                   name: podinfo
-                  namespace: podinfo
                 spec:
                   minReplicas: 2
                   maxReplicas: 3
