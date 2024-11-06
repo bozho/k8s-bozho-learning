@@ -23,23 +23,23 @@ spec:
   sourceRef:
     kind: GitRepository
     name: podinfo
-  targetNamespace: ${namespace_name:=default}
+  #targetNamespace: ${namespace_name:=default}
+  targetNamespace: podinfo
   timeout: 3m0s
   wait: true
-  postBuild: {}
+#  postBuild: {}
 
 
   patches:
     - target:
         name: podinfo
-        namespace: ${namespace_name:=default}
+        namespace: podinfo
         kind: HorizontalPodAutoscaler
       patch: |-
         apiVersion: autoscaling/v2
         kind: HorizontalPodAutoscaler
         metadata:
           name: podinfo
-          namespace: podinfo
         spec:
           minReplicas: 2
           maxReplicas: 5
