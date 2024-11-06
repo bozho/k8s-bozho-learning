@@ -27,18 +27,20 @@ spec:
   targetNamespace: default
   timeout: 3m0s
   wait: true
-  patches:
-    - target:
-        name: podinfo
-        kind: HorizontalPodAutoscaler
-      patch: |-
-        apiVersion: autoscaling/v2
-        kind: HorizontalPodAutoscaler
-        metadata:
-          name: podinfo
-        spec:
-          minReplicas: 2
-          maxReplicas: 5
+
+
+#  patches:
+#    - target:
+#        name: podinfo
+#        kind: HorizontalPodAutoscaler
+#      patch: |-
+#        apiVersion: autoscaling/v2
+#        kind: HorizontalPodAutoscaler
+#        metadata:
+#          name: podinfo
+#        spec:
+#          minReplicas: 2
+#          maxReplicas: 5
 
 
 
