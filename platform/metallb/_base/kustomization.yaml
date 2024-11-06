@@ -8,18 +8,19 @@ patches:
   - target:
       kind: IPAddressPool
       name: ${pool_name}
-    patch: |-
-      - op: replacee
-        path: /spec/addresses
-        value:
-          - 10.10.10.27/32
-          - 10.10.10.28/32
-          - 10.10.10.29/32
 #    patch: |-
-#      kind: IPAddressPool
-#      metadata:
-#        name: example
-#      spec:
+#      - op: replace
+#        path: /spec/addresses
+#        value:
+#          - 10.10.10.27/32
+#          - 10.10.10.28/32
+#          - 10.10.10.29/32
+    patch: |-
+      kind: IPAddressPool
+      metadata:
+        name: ${pool_name}
+      spec:
+        avoidBuggyIPs: true
 #        addresses:
 #          - 10.10.10.207/32
 #          - 10.10.10.208/32
