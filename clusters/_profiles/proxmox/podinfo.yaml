@@ -18,24 +18,24 @@ spec:
     substitute:
       namespace_name: podinfo
 
-  patches:
-    - target:
-        kind: Kustomization
-        name: podinfo
-      patch: |-
-        kind: Kustomization
-        metadata:
-          name: podinfo
-        spec:
-          patches:
-            - target:
-                kind: HorizontalPodAutoscaler
-                name: podinfo
-              patch: |-
-                apiVersion: autoscaling/v2
-                kind: HorizontalPodAutoscaler
-                metadata:
-                  name: podinfo
-                spec:
-                  minReplicas: 2
-                  maxReplicas: 8
+#  patches:
+#    - target:
+#        kind: Kustomization
+#        name: podinfo
+#      patch: |-
+#        kind: Kustomization
+#        metadata:
+#          name: podinfo
+#        spec:
+#          patches:
+#            - target:
+#                kind: HorizontalPodAutoscaler
+#                name: podinfo
+#              patch: |-
+#                apiVersion: autoscaling/v2
+#                kind: HorizontalPodAutoscaler
+#                metadata:
+#                  name: podinfo
+#                spec:
+#                  minReplicas: 2
+#                  maxReplicas: 8

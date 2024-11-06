@@ -6,6 +6,37 @@ components:
 resources:
   - metallb-config.yaml
 
+patches:
+  - target:
+      kind: Kustomization
+      name: podinfo-app
+    patch: |-
+      kind: Kustomization
+      metadata:
+        name: podinfo-app
+      spec:
+        patches:
+          - target:
+              kind: Kustomization
+              name: podinfo
+            patch: |-
+              kind: Kustomization
+              metadata:
+                name: podinfo
+              spec:
+                patches:
+                  - target:
+                      kind: HorizontalPodAutoscaler
+                      name: podinfo
+                    patch: |-
+                      apiVersion: autoscaling/v2
+                      kind: HorizontalPodAutoscaler
+                      metadata:
+                        name: podinfo
+                      spec:
+                        minReplicas: 2
+                        maxReplicas: 5
+
 ##patchesStrategicMerge:
 ##  - metallb-patches.yaml
 ##  - storage-patches.yaml
