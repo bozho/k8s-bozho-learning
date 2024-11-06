@@ -13,7 +13,8 @@ patches:
       name: podinfo
     patch: |-
       kind: Kustomization
-      name: podinfo
+      metadata:
+        name: podinfo
       spec:
         patches:
           - target:
