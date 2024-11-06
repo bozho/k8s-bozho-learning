@@ -13,6 +13,7 @@ patches:
       kind: IPAddressPool
       metadata:
         name: ${pool_name}
+        namespace: ${namespace_name:=default}
       spec:
         avoidBuggyIPs: true
         addresses:
