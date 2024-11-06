@@ -26,6 +26,7 @@ spec:
   targetNamespace: ${namespace_name:=default}
   timeout: 3m0s
   wait: true
+  postBuild: {}
 
 
 #  patches:
