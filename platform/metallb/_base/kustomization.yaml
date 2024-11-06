@@ -9,14 +9,21 @@ patches:
       kind: IPAddressPool
       name: example
     patch: |-
-      kind: IPAddressPool
-      metadata:
-        name: example
-      spec:
-        addresses:
-          - 10.10.10.207/32
-          - 10.10.10.208/32
-          - 10.10.10.209/32
+      - op: replace
+        path: /spec/addresses
+        value: |-
+          - 10.10.10.27/32
+          - 10.10.10.28/32
+          - 10.10.10.29/32
+#    patch: |-
+#      kind: IPAddressPool
+#      metadata:
+#        name: example
+#      spec:
+#        addresses:
+#          - 10.10.10.207/32
+#          - 10.10.10.208/32
+#          - 10.10.10.209/32
 
 #patchesJson6902:
 #  - target:
