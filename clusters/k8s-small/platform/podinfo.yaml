@@ -37,6 +37,7 @@ spec:
                 kind: HorizontalPodAutoscaler
                 metadata:
                   name: podinfo
+                  namespace: podinfo
                 spec:
                   minReplicas: 2
                   maxReplicas: 3
