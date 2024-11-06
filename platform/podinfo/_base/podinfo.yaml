@@ -30,19 +30,19 @@ spec:
 #  postBuild: {}
 
 
-  patches:
-    - target:
-        name: podinfo
-#        namespace: podinfo33
-        kind: HorizontalPodAutoscaler
-      patch: |-
-        apiVersion: autoscaling/v2
-        kind: HorizontalPodAutoscaler
-        metadata:
-          name: podinfo
-        spec:
-          minReplicas: 2
-          maxReplicas: 5
+#  patches:
+#    - target:
+#        name: podinfo
+##        namespace: podinfo33
+#        kind: HorizontalPodAutoscaler
+#      patch: |-
+#        apiVersion: autoscaling/v2
+#        kind: HorizontalPodAutoscaler
+#        metadata:
+#          name: podinfo
+#        spec:
+#          minReplicas: 2
+#          maxReplicas: 5
 
 
 
