@@ -7,19 +7,12 @@ resources:
 patches:
   - target:
       kind: IPAddressPool
-      name: example
-#    patch: |-
-#      - op: replace
-#        path: /spec/addresses
-#        value:
-#          - 10.10.10.27/32
-#          - 10.10.10.28/32
-#          - 10.10.10.29/32
+      name: ${pool_name}
     patch: |-
       apiVersion: metallb.io/v1beta1
       kind: IPAddressPool
       metadata:
-        name: example
+        name: ${pool_name}
       spec:
         avoidBuggyIPs: true
         addresses:
