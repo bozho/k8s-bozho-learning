@@ -40,7 +40,7 @@ spec:
                   namespace: ${namespace_name}
                 spec:
                   minReplicas: 2
-                  maxReplicas: 5
+                  maxReplicas: 6
 
 
 #  patches:
