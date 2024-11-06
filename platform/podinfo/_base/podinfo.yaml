@@ -23,8 +23,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: podinfo
-  #targetNamespace: ${namespace_name:=default}
-  targetNamespace: podinfo
+  targetNamespace: ${namespace_name:=default}
   timeout: 3m0s
   wait: true
   postBuild: {}
@@ -33,7 +32,7 @@ spec:
   patches:
     - target:
         name: podinfo
-        namespace: podinfo
+        namespace: ${namespace_name:=default}
         kind: HorizontalPodAutoscaler
       patch: |-
         apiVersion: autoscaling/v2
