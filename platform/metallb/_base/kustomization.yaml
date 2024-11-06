@@ -4,20 +4,20 @@ kind: Kustomization
 resources:
   - metallb.yaml
 
-patchesJson6902:
-  - target:
-      version: v1beta1
-      group: metallb.io
-      kind: IPAddressPool
-      name: example2
-#      namespace: metallb-system
-
-#      name: ${pool_name}
-#      namespace: ${namespace_name:=default}
-    patch: |-
-      - op: replace
-        path: /spec/addresses
-        value:
-          - 10.10.10.27/32
-          - 10.10.10.28/32
-          - 10.10.10.29/32
+#patchesJson6902:
+#  - target:
+#      version: v1beta1
+#      group: metallb.io
+#      kind: IPAddressPool
+#      name: example2
+##      namespace: metallb-system
+#
+##      name: ${pool_name}
+##      namespace: ${namespace_name:=default}
+#    patch: |-
+#      - op: replace
+#        path: /spec/addresses
+#        value:
+#          - 10.10.10.27/32
+#          - 10.10.10.28/32
+#          - 10.10.10.29/32
