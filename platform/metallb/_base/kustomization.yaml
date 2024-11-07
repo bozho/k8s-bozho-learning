@@ -4,22 +4,22 @@ kind: Kustomization
 resources:
   - metallb.yaml
 
-patches:
-  - target:
-      kind: IPAddressPool
-      #name: ${pool_name}
-      #name: example
-    patch: |-
-      apiVersion: metallb.io/v1beta1
-      kind: IPAddressPool
-      metadata:
-        name: _
-      spec:
-        avoidBuggyIPs: true
-        addresses:
-          - 10.10.10.207/32
-          - 10.10.10.208/32
-          - 10.10.10.209/32
+#patches:
+#  - target:
+#      kind: IPAddressPool
+#      #name: ${pool_name}
+#      #name: example
+#    patch: |-
+#      apiVersion: metallb.io/v1beta1
+#      kind: IPAddressPool
+#      metadata:
+#        name: _
+#      spec:
+#        avoidBuggyIPs: true
+#        addresses:
+#          - 10.10.10.207/32
+#          - 10.10.10.208/32
+#          - 10.10.10.209/32
 
 #patchesJson6902:
 #  - target:
