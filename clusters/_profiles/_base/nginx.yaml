@@ -50,11 +50,11 @@ spec:
     - matches:
       - path:
           type: PathPrefix
-          value: /podinfo
-      backendRefs:
-        - name: podinfo
-          namespace: podinfo
-          port: 9898
+          value: /
+        backendRefs:
+          - name: podinfo
+            namespace: podinfo
+            port: 9898
 
 ---
 apiVersion: gateway.networking.k8s.io/v1beta1
