@@ -39,6 +39,7 @@ spec:
   postBuild:
     substitute:
       namespace_name: metallb-system
+      pool_name: example
     substituteFrom:
       - kind: ConfigMap
         name: metallb-config
