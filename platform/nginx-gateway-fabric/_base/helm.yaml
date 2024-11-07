@@ -23,3 +23,6 @@ spec:
   chartRef:
     kind: OCIRepository
     name: nginx-gateway-fabric
+  values:
+    service:
+      create: false
