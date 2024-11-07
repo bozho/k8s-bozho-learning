@@ -7,7 +7,7 @@ resources:
 patches:
   - target:
       kind: IPAddressPool
-      #name: ${pool_name}
+      name: ${pool_name}
       #name: example
     patch: |-
       apiVersion: metallb.io/v1beta1
