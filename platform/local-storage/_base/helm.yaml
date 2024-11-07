@@ -33,9 +33,3 @@ spec:
     - kind: ConfigMap
       name: local-storage-config
       optional: true
-  values: {}
-#  values:
-#    classes:
-#      - name: local-storage
-#        hostDir: /mnt/disks
-#        mountDir: /usr/share/elasticsearch/data
