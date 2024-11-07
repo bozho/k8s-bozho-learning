@@ -13,7 +13,7 @@ patches:
       apiVersion: metallb.io/v1beta1
       kind: IPAddressPool
       metadata:
-        name: ${pool_name}
+        name: aruda
       spec:
         avoidBuggyIPs: true
         addresses:
