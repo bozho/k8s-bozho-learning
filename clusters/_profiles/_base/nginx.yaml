@@ -57,6 +57,7 @@ spec:
           port: 9898
 
 ---
+apiVersion: gateway.networking.k8s.io/v1beta1
 kind: ReferenceGrant
 metadata:
   name: podinfo
