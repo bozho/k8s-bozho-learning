@@ -4,13 +4,8 @@ kind: IPAddressPool
 metadata:
   name: ${pool_name}
   namespace: ${namespace_name:=default}
-  #name: example
-  #namespace: metallb-system
 spec:
   addresses: []
-#    - 10.20.30.207/32
-#    - 10.20.30.208/32
-#    - 10.20.30.209/32
 
 ---
 apiVersion: metallb.io/v1beta1
