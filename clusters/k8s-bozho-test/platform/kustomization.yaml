@@ -37,6 +37,29 @@ patches:
                         minReplicas: 2
                         maxReplicas: 6
 
+  - target:
+      kind: Kustomization
+      name: metallb
+    patch: |-
+      kind: Kustomization
+      metadata:
+        name: _
+      spec:
+        patches:
+          - target:
+              kind: IPAddressPool
+            patch: |-
+              apiVersion: metallb.io/v1beta1
+              kind: IPAddressPool
+              metadata:
+                name: _
+              spec:
+                avoidBuggyIPs: true
+                addresses:
+                  - 10.10.10.207/32
+                  - 10.10.10.208/32
+                  - 10.10.10.209/32
+
 ##patchesStrategicMerge:
 ##  - metallb-patches.yaml
 ##  - storage-patches.yaml
