@@ -30,9 +30,9 @@ spec:
     - name: http
       port: 80
       protocol: HTTP
-      allowedRoutes:
-        namespaces:
-          from: All
+#      allowedRoutes:
+#        namespaces:
+#          from: All
 
 ---
 apiVersion: gateway.networking.k8s.io/v1
@@ -55,3 +55,17 @@ spec:
         - name: podinfo
           namespace: podinfo
           port: 9898
+
+---
+kind: ReferenceGrant
+metadata:
+  name: podinfo
+  namespace: podinfo
+spec:
+  from:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: nginx
+  to:
+    - group: ""
+      kind: Service
