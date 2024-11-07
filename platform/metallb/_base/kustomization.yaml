@@ -7,13 +7,13 @@ resources:
 patches:
   - target:
       kind: IPAddressPool
-      name: ${pool_name}
+      #name: ${pool_name}
       #name: example
     patch: |-
       apiVersion: metallb.io/v1beta1
       kind: IPAddressPool
       metadata:
-        name: example
+        name: ${pool_name}
       spec:
         avoidBuggyIPs: true
         addresses:
