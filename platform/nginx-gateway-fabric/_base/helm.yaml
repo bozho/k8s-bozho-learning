@@ -17,7 +17,7 @@ metadata:
   name: nginx-gateway-fabric
   namespace: flux-system
 spec:
-  targetNamespace: nginx
+  targetNamespace: ${namespace_name}
   interval: 10m
   releaseName: nginx-gateway-fabric
   chartRef:

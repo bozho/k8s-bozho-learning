@@ -14,3 +14,6 @@ spec:
   prune: true
   wait: true
   timeout: 5m
+  postBuild:
+    substitute:
+      namespace_name: nginx
