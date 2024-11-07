@@ -41,8 +41,8 @@ spec:
   parentRefs:
     - name: elastic
       namespace: nginx
-#  hostnames:
-#    - "cafe.example.com"
+  hostnames:
+    - "k8s-bozho.symplectic.internal"
   rules:
     - matches:
       - path:
