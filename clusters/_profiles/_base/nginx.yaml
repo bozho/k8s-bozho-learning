@@ -42,7 +42,7 @@ spec:
     - name: elastic
       namespace: nginx
   hostnames:
-    - "k8s-bozho.symplectic.internal"
+    - "k8s-es.symplectic.internal"
   rules:
     - matches:
       - path:
