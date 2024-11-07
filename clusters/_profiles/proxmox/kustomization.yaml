@@ -12,7 +12,7 @@ resources:
 patches:
   - target:
       kind: Kustomization
-      name: ${pool_name}
+      name: metallb
     patch: |-
       kind: Kustomization
       metadata:
