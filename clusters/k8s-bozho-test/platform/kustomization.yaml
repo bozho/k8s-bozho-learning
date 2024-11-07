@@ -58,7 +58,6 @@ patches:
                 addresses:
                   - 10.10.10.207/32
                   - 10.10.10.208/32
-                  - 10.10.10.209/32
 
 ##patchesStrategicMerge:
 ##  - metallb-patches.yaml
