@@ -18,7 +18,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: nginx-gateway-fabric-crda
+    - name: nginx-gateway-fabric-crd
   targetNamespace: ${namespace_name}
   interval: 10m
   releaseName: nginx-gateway-fabric

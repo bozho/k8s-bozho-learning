@@ -14,16 +14,16 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: nginx-gateway-fabric-crda
+  name: nginx-gateway-fabric-crd
   namespace: flux-system
 spec:
-  interval: 30m0s
+  interval: 15m
+  sourceRef:
+    kind: GitRepository
+    name: nginx-gateway-fabric-crd
   path: ./config/crd/gateway-api/standard
   prune: true
   retryInterval: 2m0s
-  sourceRef:
-    kind: GitRepository
-  name: nginx-gateway-fabric-crd
   targetNamespace: ${namespace_name:=default}
   timeout: 3m0s
   wait: true
