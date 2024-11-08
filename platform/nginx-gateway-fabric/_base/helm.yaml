@@ -41,19 +41,19 @@ spec:
   wait: true
   postBuild: {}
 
----
-apiVersion: helm.toolkit.fluxcd.io/v2
-kind: HelmRelease
-metadata:
-  name: nginx-gateway-fabric
-  namespace: flux-system
-spec:
-  dependsOn:
-    - kind: Kustomization
-      name: nginx-gateway-fabric-crda
-  targetNamespace: ${namespace_name}
-  interval: 10m
-  releaseName: nginx-gateway-fabric
-  chartRef:
-    kind: OCIRepository
-    name: nginx-gateway-fabric
+#---
+#apiVersion: helm.toolkit.fluxcd.io/v2
+#kind: HelmRelease
+#metadata:
+#  name: nginx-gateway-fabric
+#  namespace: flux-system
+#spec:
+#  dependsOn:
+#    - kind: Kustomization
+#      name: nginx-gateway-fabric-crda
+#  targetNamespace: ${namespace_name}
+#  interval: 10m
+#  releaseName: nginx-gateway-fabric
+#  chartRef:
+#    kind: OCIRepository
+#    name: nginx-gateway-fabric
