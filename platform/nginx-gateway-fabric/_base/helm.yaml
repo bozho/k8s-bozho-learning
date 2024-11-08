@@ -17,12 +17,11 @@ metadata:
   name: nginx-gateway-fabric
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: nginx-gateway-fabric-crd
   targetNamespace: ${namespace_name}
   interval: 10m
   releaseName: nginx-gateway-fabric
   chartRef:
     kind: OCIRepository
     name: nginx-gateway-fabric
-#  values:
-#    service:
-#      create: false

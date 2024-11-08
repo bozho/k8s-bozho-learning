@@ -4,5 +4,5 @@ kind: Kustomization
 components:
   - "../../_components/namespace"
 resources:
-  - https://github.com/nginxinc/nginx-gateway-fabric/config/crd/gateway-api/standard?ref=v1.4.0
+  - crd.yaml
   - helm.yaml
