@@ -2,7 +2,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: nginx-gateway-fabric-crd
+  name: nginx-crd
   namespace: flux-system
 spec:
   interval: 15m
@@ -19,11 +19,11 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: nginx-gateway-fabric
+  name: nginx
   namespace: flux-system
 spec:
   dependsOn:
-    - name: nginx-gateway-fabric-crd
+    - name: nginx-crd
   interval: 15m
   sourceRef:
     kind: GitRepository
@@ -39,55 +39,55 @@ spec:
 
 
 
----
-apiVersion: gateway.networking.k8s.io/v1
-kind: Gateway
-metadata:
-  name: http
-  namespace: nginx
-spec:
-  gatewayClassName: nginx
-  listeners:
-    - name: http
-      port: 80
-      protocol: HTTP
-#      allowedRoutes:
-#        namespaces:
-#          from: All
-
----
-apiVersion: gateway.networking.k8s.io/v1
-kind: HTTPRoute
-metadata:
-  name: podinfo
-  namespace: nginx
-spec:
-  parentRefs:
-    - name: http
-      namespace: nginx
-  hostnames:
-    - "k8s-es.symplectic.internal"
-  rules:
-    - matches:
-      - path:
-          type: PathPrefix
-          value: /
-      backendRefs:
-        - name: podinfo
-          namespace: podinfo
-          port: 9898
-
----
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: ReferenceGrant
-metadata:
-  name: podinfo
-  namespace: podinfo
-spec:
-  from:
-    - group: gateway.networking.k8s.io
-      kind: HTTPRoute
-      namespace: nginx
-  to:
-    - group: ""
-      kind: Service
+#---
+#apiVersion: gateway.networking.k8s.io/v1
+#kind: Gateway
+#metadata:
+#  name: http
+#  namespace: nginx
+#spec:
+#  gatewayClassName: nginx
+#  listeners:
+#    - name: http
+#      port: 80
+#      protocol: HTTP
+##      allowedRoutes:
+##        namespaces:
+##          from: All
+#
+#---
+#apiVersion: gateway.networking.k8s.io/v1
+#kind: HTTPRoute
+#metadata:
+#  name: podinfo
+#  namespace: nginx
+#spec:
+#  parentRefs:
+#    - name: http
+#      namespace: nginx
+#  hostnames:
+#    - "k8s-es.symplectic.internal"
+#  rules:
+#    - matches:
+#      - path:
+#          type: PathPrefix
+#          value: /
+#      backendRefs:
+#        - name: podinfo
+#          namespace: podinfo
+#          port: 9898
+#
+#---
+#apiVersion: gateway.networking.k8s.io/v1beta1
+#kind: ReferenceGrant
+#metadata:
+#  name: podinfo
+#  namespace: podinfo
+#spec:
+#  from:
+#    - group: gateway.networking.k8s.io
+#      kind: HTTPRoute
+#      namespace: nginx
+#  to:
+#    - group: ""
+#      kind: Service
