@@ -2,9 +2,28 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: nginx
+  name: nginx-gateway-fabric-crd
   namespace: flux-system
 spec:
+  interval: 15m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+#  serviceAccountName: kustomize-controller
+  path: ./platform/nginx-gateway-fabric/_crd
+  prune: true
+  wait: true
+  timeout: 5m
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: nginx-gateway-fabric
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: nginx-gateway-fabric-crd
   interval: 15m
   sourceRef:
     kind: GitRepository
@@ -17,6 +36,8 @@ spec:
   postBuild:
     substitute:
       namespace_name: nginx
+
+
 
 #---
 #apiVersion: gateway.networking.k8s.io/v1
