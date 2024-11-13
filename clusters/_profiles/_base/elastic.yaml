@@ -1,0 +1,42 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: elastic-operator
+  namespace: flux-system
+spec:
+  interval: 15m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+#  serviceAccountName: kustomize-controller
+  path: ./apps/elasticsearch/operator
+  prune: true
+  wait: true
+  timeout: 5m
+  postBuild:
+    substitute:
+      namespace_name: elastic-system
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: elastic
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: elastic-operator
+  interval: 15m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+#  serviceAccountName: kustomize-controller
+  path: ./apps/elasticsearch/instance
+  prune: true
+  wait: true
+  timeout: 5m
+  postBuild:
+    substitute:
+      instance_name: foo
+      namespace_name: elastic
