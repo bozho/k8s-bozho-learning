@@ -1,0 +1,12 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: local-storage-config
+  namespace: storage
+data:
+  values.yaml: |
+    classes:
+      - name: elastic-data
+        hostDir: /mnt/disks
+        mountDir: /usr/share/elasticsearch/data
