@@ -1,0 +1,63 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: ${namespace_name}
+resources:
+  - podinfo.yaml
+
+#patches:
+#  - target:
+#      kind: Kustomization
+#      name: podinfo
+#    patch: |-
+#      kind: Kustomization
+#      metadata:
+#        name: podinfo
+#      spec:
+#        patches:
+#          - target:
+#              name: podinfo
+#              kind: HorizontalPodAutoscaler
+#            patch: |-
+#              apiVersion: autoscaling/v2
+#              kind: HorizontalPodAutoscaler
+#              metadata:
+#                name: podinfo
+#              spec:
+#                minReplicas: 3
+
+
+
+#patches:
+#  - target:
+#      group: kustomize.toolkit.fluxcd.io
+#      version: v1
+#      name: podinfo
+#      kind: Kustomization
+#    patch: |-
+#      spec:
+#        patches:
+#          - target:
+#              name: podinfo
+#              kind: HorizontalPodAutoscaler
+#            patch: |-
+#              apiVersion: autoscaling/v2
+#              kind: HorizontalPodAutoscaler
+#              metadata:
+#                name: podinfo
+#              spec:
+#                minReplicas: 4
+
+#  - target:
+#      #group: autoscaling
+#      #version: v2
+#      name: podinfo
+#      #namespace: default
+#      kind: HorizontalPodAutoscaler
+#    patch: |-
+#      apiVersion: autoscaling/v2
+#      kind: HorizontalPodAutoscaler
+#      metadata:
+#        name: podinfo
+#      spec:
+#        minReplicas: 3
