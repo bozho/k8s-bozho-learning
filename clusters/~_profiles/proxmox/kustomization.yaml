@@ -5,3 +5,6 @@ components:
   - ../_base
 resources:
   - metallb.yaml
+  - storage-config.yaml
+  - storage.yaml
+  - podinfo.yaml
