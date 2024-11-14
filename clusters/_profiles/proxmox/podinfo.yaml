@@ -20,7 +20,7 @@ spec:
     substitute:
       namespace_name: podinfo
       gateway_name: frontend
-      gateway_namespace: network
+      gateway_namespace: networking
 
 
 #  patches:
