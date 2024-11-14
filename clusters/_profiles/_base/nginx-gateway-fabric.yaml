@@ -29,4 +29,10 @@ metadata:
   namespace: networking
 spec:
   gatewayClassName: nginx
-  listeners: []
+  listeners:
+    - name: http
+      port: 80
+      protocol: HTTP
+      allowedRoutes:
+        namespaces:
+          from: Same
