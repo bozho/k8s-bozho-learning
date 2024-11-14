@@ -19,3 +19,14 @@ spec:
   postBuild:
     substitute:
       namespace_name: networking
+
+
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: http
+  namespace: networking
+spec:
+  gatewayClassName: nginx
+  listeners: []
