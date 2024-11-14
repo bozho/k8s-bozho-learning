@@ -5,7 +5,7 @@ metadata:
   name: frontend
   namespace: networking
 spec:
-  gatewayClassName: ${gateway_class_name}
+  gatewayClassName: nginx
   listeners:
     - name: http
       port: 80
