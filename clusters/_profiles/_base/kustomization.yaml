@@ -5,5 +5,4 @@ resources:
   - namespaces.yaml
   - gateway-api.yaml
   - nginx-gateway-fabric.yaml
-  - routing.yaml
   - elastic.yaml
