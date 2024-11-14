@@ -5,6 +5,8 @@ metadata:
   name: podinfo-app
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: gateway-api
   interval: 15m
   sourceRef:
     kind: GitRepository
@@ -17,6 +19,9 @@ spec:
   postBuild:
     substitute:
       namespace_name: podinfo
+      gateway_name: frontend
+      gateway_namespace: network
+
 
 #  patches:
 #    - target:

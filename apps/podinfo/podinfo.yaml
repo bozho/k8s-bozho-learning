@@ -8,6 +8,7 @@ spec:
   ref:
     branch: master
   url: https://github.com/stefanprodan/podinfo
+
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -26,6 +27,32 @@ spec:
   wait: true
   postBuild: {}
 
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: podinfo
+  namespace: ${gateway_namespace}
+spec:
+  parentRefs:
+    - name: ${gateway_name}
+      namespace: ${gateway_namespace}
+  hostnames: []
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /podinfo
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
+      backendRefs:
+        - name: podinfo
+          namespace: ${namespace_name}
+          port: 9898
 
 #  patches:
 #    - target:
