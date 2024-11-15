@@ -70,4 +70,4 @@ spec:
       - kind: Secret
         name: foo-remote-ca
         group: ""
-#    hostname: auth.example.com
+    hostname: foo-es-http.elastic.es.local
