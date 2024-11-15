@@ -51,9 +51,12 @@ spec:
               type: ReplacePrefixMatch
               replacePrefixMatch: /
       backendRefs:
-        - name: ${instance_name}-es-https
-          namespace: ${namespace_name}
-          port: 9200
+        - name: podinfo
+          namespace: podinfo
+          port: 9898
+#        - name: ${instance_name}-es-https
+#          namespace: ${namespace_name}
+#          port: 9200
 
 #---
 #apiVersion: gateway.networking.k8s.io/v1alpha3
