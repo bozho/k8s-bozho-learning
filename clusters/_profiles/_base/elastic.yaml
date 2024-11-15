@@ -26,6 +26,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
+    - name: gateway-api
     - name: elastic-operator
   interval: 15m
   sourceRef:
@@ -40,3 +41,5 @@ spec:
     substitute:
       instance_name: foo
       namespace_name: elastic
+      gateway_name: frontend
+      gateway_namespace: networking
