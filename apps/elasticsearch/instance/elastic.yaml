@@ -49,9 +49,9 @@ spec:
               type: ReplacePrefixMatch
               replacePrefixMatch: /
       backendRefs:
-        - name: podinfo
-          namespace: podinfo
-          port: 9898
+        - name: foo-es-http
+          namespace: elastic
+          port: 9200
 
 
 #---
