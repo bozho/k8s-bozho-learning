@@ -36,8 +36,7 @@ spec:
   parentRefs:
     - name: ${gateway_name}
       namespace: ${gateway_namespace}
-  hostnames:
-    - foo-es-http.elastic.es.local
+  hostnames: []
   rules:
     - matches:
         - path:
