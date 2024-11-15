@@ -22,4 +22,6 @@ spec:
     kind: OCIRepository
     name: nginx-gateway-fabric
   values:
-    nginxGateway.gwAPIExperimentalFeatures.enable: true
+    nginxGateway:
+      gwAPIExperimentalFeatures:
+        enable: true
