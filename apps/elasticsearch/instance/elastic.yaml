@@ -68,7 +68,7 @@ spec:
       group: ""
   validation:
     caCertificateRefs:
-      - kind: Secret
-        name: foo-remote-ca
+      - kind: ConfigMap
+        name: es-ca
         group: ""
     hostname: foo-es-http.elastic.es.local
