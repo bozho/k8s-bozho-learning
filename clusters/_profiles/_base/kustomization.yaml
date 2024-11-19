@@ -5,4 +5,5 @@ resources:
   - namespaces.yaml
   - gateway-api.yaml
   - nginx-gateway-fabric.yaml
+  - cert-manager.yaml
   - elastic.yaml
