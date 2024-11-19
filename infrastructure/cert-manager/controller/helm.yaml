@@ -26,4 +26,4 @@ spec:
       interval: 12h
   values:
     installCRDs: true
-    extraArgs: "--enable-gateway-api"
+    extraArgs: "{--enable-gateway-api}"
