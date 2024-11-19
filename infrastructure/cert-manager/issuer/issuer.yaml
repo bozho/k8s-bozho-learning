@@ -9,6 +9,7 @@ spec:
     email: bozho@symplectic.co.uk
     # The server is replaced in /clusters/production/infrastructure.yaml
     server: https://is-ca-server.symplectic.internal/acme/acme/
+    skipTLSVerify: true # Should use the CA bundle instead.
     privateKeySecretRef:
       name: letsencrypt-nginx
     solvers:
