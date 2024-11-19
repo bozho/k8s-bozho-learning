@@ -8,7 +8,7 @@ spec:
     # Replace the email address with your own contact email
     email: bozho@symplectic.co.uk
     # The server is replaced in /clusters/production/infrastructure.yaml
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    server: https://is-ca-server.symplectic.internal/acme/acme/
     privateKeySecretRef:
       name: letsencrypt-nginx
     solvers:
