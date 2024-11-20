@@ -16,13 +16,25 @@ patches:
         name: _
       spec:
         listeners:
-          - name: http
-            port: 80
-            protocol: HTTP
+          - name: https
+            port: 443
+            protocol: HTTPS
             hostname: podinfo.symplectic.internal
             allowedRoutes:
               namespaces:
                 from: All
+            tls:
+              mode: Terminate
+              certificateRefs:
+                - name:
+                 podinfo-cert
+#          - name: http
+#            port: 80
+#            protocol: HTTP
+#            hostname: podinfo.symplectic.internal
+#            allowedRoutes:
+#              namespaces:
+#                from: All
 #          - name: https
 #            port: 443
 #            protocol: HTTPS
