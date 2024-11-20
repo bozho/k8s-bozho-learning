@@ -42,13 +42,14 @@ spec:
     - matches:
         - path:
             type: PathPrefix
-            value: /podinfo
-      filters:
-        - type: URLRewrite
-          urlRewrite:
-            path:
-              type: ReplacePrefixMatch
-              replacePrefixMatch: /
+            value: /
+#            value: /podinfo
+#      filters:
+#        - type: URLRewrite
+#          urlRewrite:
+#            path:
+#              type: ReplacePrefixMatch
+#              replacePrefixMatch: /
       backendRefs:
         - name: podinfo
           namespace: ${namespace_name}
