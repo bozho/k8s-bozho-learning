@@ -6,7 +6,10 @@ resources:
   - gateway.yaml
 
 patches:
-  - patch: |-
+  - target:
+      kind: Gateway
+      name: frontend
+    patch: |-
       apiVersion: gateway.networking.k8s.io/v1
       kind: Gateway
       metadata:
