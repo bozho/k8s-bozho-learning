@@ -10,7 +10,6 @@ patches:
       kind: Gateway
       name: frontend
     patch: |-
-      apiVersion: gateway.networking.k8s.io/v1
       kind: Gateway
       metadata:
         name: _
