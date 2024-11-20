@@ -5,7 +5,7 @@ metadata:
   name: metallb
   namespace: flux-system
 spec:
-  interval: 4h
+  interval: 5m
   url: https://metallb.github.io/metallb
 
 ---
@@ -20,10 +20,10 @@ spec:
   chart:
     spec:
       chart: metallb
-      interval: 15m
+      interval: 5m
       sourceRef:
         kind: HelmRepository
         name: metallb
       version: '0.14.8'
-  interval: 15m
+  interval: 5m
   values: {}

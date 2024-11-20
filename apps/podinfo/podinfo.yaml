@@ -4,7 +4,7 @@ kind: GitRepository
 metadata:
   name: podinfo
 spec:
-  interval: 1m0s
+  interval: 5m
   ref:
     branch: master
   url: https://github.com/stefanprodan/podinfo
@@ -15,10 +15,10 @@ kind: Kustomization
 metadata:
   name: podinfo
 spec:
-  interval: 30m0s
+  interval: 5m
   path: ./kustomize
   prune: true
-  retryInterval: 2m0s
+  retryInterval: 5m
   sourceRef:
     kind: GitRepository
     name: podinfo

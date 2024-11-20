@@ -21,7 +21,7 @@ metadata:
   name: metallb
   namespace: flux-system
 spec:
-  interval: 10m
+  interval: 5m
   targetNamespace: metallb-system
   sourceRef:
     kind: GitRepository

@@ -5,7 +5,7 @@ metadata:
   name: elastic-operator
   namespace: flux-system
 spec:
-  interval: 15m
+  interval: 5m
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -27,7 +27,7 @@ metadata:
 spec:
   dependsOn:
     - name: elastic-operator
-  interval: 15m
+  interval: 5m
   sourceRef:
     kind: GitRepository
     name: flux-system

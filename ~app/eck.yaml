@@ -19,7 +19,7 @@ metadata:
   name: elastic-operator
   namespace: elastic-system
 spec:
-  interval: 10m
+  interval: 5m
   timeout: 5m
   chart:
     spec:

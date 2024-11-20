@@ -5,7 +5,7 @@ metadata:
   name: nginx-crd
   namespace: flux-system
 spec:
-  interval: 15m
+  interval: 5m
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -24,7 +24,7 @@ metadata:
 spec:
   dependsOn:
     - name: nginx-crd
-  interval: 15m
+  interval: 5m
   sourceRef:
     kind: GitRepository
     name: flux-system
