@@ -10,7 +10,7 @@ patches:
       apiVersion: gateway.networking.k8s.io/v1
       kind: Gateway
       metadata:
-        name: frontent
+        name: frontend
         namespace: networking
       spec:
         listeners:
