@@ -7,8 +7,14 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   gatewayClassName: nginx
-  listeners: []
-#  listeners:
+  listeners:
+    - name: dummy
+      port: 80
+      protocol: HTTP
+      hostname: podinfo.symplectic.internal
+      allowedRoutes:
+        namespaces:
+          from: All
 #    - name: http
 #      port: 80
 #      protocol: HTTP
