@@ -6,42 +6,11 @@ namespace: networking
 resources:
   - gateway.yaml
 
-patches:
-  - target:
-      kind: Gateway
-      name: frontend
-    patch: |-
-      kind: Gateway
-      metadata:
-        name: _
-      spec:
-        listeners:
-          - name: http
-            port: 80
-            protocol: HTTP
-            hostname: podinfo.symplectic.internal
-            allowedRoutes:
-              namespaces:
-                from: All
-          - name: https
-            port: 443
-            protocol: HTTPS
-            hostname: podinfo.symplectic.internal
-            allowedRoutes:
-              namespaces:
-                from: All
-            tls:
-              mode: Terminate
-              certificateRefs:
-                - name: podinfo-cert
-
-
+#patches:
 #  - target:
 #      kind: Gateway
 #      name: frontend
-#      namespace: network
 #    patch: |-
-#      apiVersion: gateway.networking.k8s.io/v1
 #      kind: Gateway
 #      metadata:
 #        name: _
