@@ -23,18 +23,18 @@ patches:
             allowedRoutes:
               namespaces:
                 from: All
-#          - name: https
-#            port: 443
-#            protocol: HTTPS
-#            hostname: podinfo.symplectic.internal
-#            allowedRoutes:
-#              namespaces:
-#                from: All
-#            tls:
-#              mode: Terminate
-#              certificateRefs:
-#                - name:
-#                 podinfo-cert
+          - name: https
+            port: 443
+            protocol: HTTPS
+            hostname: podinfo.symplectic.internal
+            allowedRoutes:
+              namespaces:
+                from: All
+            tls:
+              mode: Terminate
+              certificateRefs:
+                - name:
+                 podinfo-cert
 
 
 #  - target:
