@@ -42,7 +42,7 @@ metadata:
 spec:
   parentRefs:
     - name: ${gateway_name}
-      namespace: ${gateway_namespace}
+      namespace: ${namespace_name}
 #    - name: frontend
 #      namespace: networking
       sectionName: http4
