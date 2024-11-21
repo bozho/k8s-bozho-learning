@@ -102,4 +102,4 @@ spec:
       - kind: ConfigMap
         name: es-ca
         group: ""
-    hostname: foo-es-http.elastic.es.local
+    hostname: k8s-search.symplectic.internal
