@@ -32,7 +32,7 @@ spec:
           name: _
         spec:
           listeners:
-            - name: http2
+            - name: http3
               port: 80
               protocol: HTTP
               allowedRoutes:
