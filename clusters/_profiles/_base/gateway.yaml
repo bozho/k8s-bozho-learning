@@ -35,14 +35,10 @@ spec:
             - name: http
               port: 80
               protocol: HTTP
-              hostname: podinfo.symplectic.internal
               allowedRoutes:
                 namespaces:
-                  from: Selector
-                  selector:
-                    matchLabels:
-                      app.kubernetes.io/name: podinfo
-            - name: https
+                  from: All
+            - name: podinfo-https
               port: 443
               protocol: HTTPS
               hostname: podinfo.symplectic.internal
@@ -56,13 +52,12 @@ spec:
                 mode: Terminate
                 certificateRefs:
                   - name: podinfo-cert
-
 #  patches:
 #    - target:
 #        kind: Gateway
 #        name: frontend
+#        #name: ${gateway_name}
 #      patch: |-
-#        apiVersion: gateway.networking.k8s.io/v1
 #        kind: Gateway
 #        metadata:
 #          name: _
@@ -74,14 +69,20 @@ spec:
 #              hostname: podinfo.symplectic.internal
 #              allowedRoutes:
 #                namespaces:
-#                  from: All
+#                  from: Selector
+#                  selector:
+#                    matchLabels:
+#                      app.kubernetes.io/name: podinfo
 #            - name: https
 #              port: 443
 #              protocol: HTTPS
 #              hostname: podinfo.symplectic.internal
 #              allowedRoutes:
 #                namespaces:
-#                  from: All
+#                  from: Selector
+#                  selector:
+#                    matchLabels:
+#                      app.kubernetes.io/name: podinfo
 #              tls:
 #                mode: Terminate
 #                certificateRefs:
