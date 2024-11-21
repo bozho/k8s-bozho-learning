@@ -24,7 +24,7 @@ spec:
   patches:
     - target:
         kind: Gateway
-        name: frontend
+#        name: frontend
         #name: ${gateway_name}
       patch: |-
         kind: Gateway
