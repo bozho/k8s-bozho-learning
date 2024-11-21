@@ -17,5 +17,5 @@ spec:
           gatewayHTTPRoute:
             parentRefs:
               - name: frontend
-                namespace: networking
+                namespace: ${namespace_name}
                 kind: Gateway
