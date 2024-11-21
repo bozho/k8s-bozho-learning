@@ -52,6 +52,18 @@ spec:
                 mode: Terminate
                 certificateRefs:
                   - name: podinfo-cert
+            - name: elastic-https
+              port: 443
+              protocol: HTTPS
+              hostname: k8s-search.symplectic.internal
+              allowedRoutes:
+                namespaces:
+                  from: All
+              tls:
+                mode: Terminate
+                certificateRefs:
+                  - name: elastic-cert
+
 #  patches:
 #    - target:
 #        kind: Gateway

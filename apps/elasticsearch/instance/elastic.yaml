@@ -31,28 +31,60 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: elastic3
+  name: elastic
 spec:
   parentRefs:
     - name: ${gateway_name}
       namespace: ${gateway_namespace}
-  hostnames: []
+      sectionName: elastic-https
+  hostnames:
+    - k8s-search.symplectic.internal
   rules:
     - matches:
         - path:
             type: PathPrefix
-            value: /es
-      filters:
-        - type: URLRewrite
-          urlRewrite:
-            path:
-              type: ReplacePrefixMatch
-              replacePrefixMatch: /
+            value: /
+#            value: /es
+#      filters:
+#        - type: URLRewrite
+#          urlRewrite:
+#            path:
+#              type: ReplacePrefixMatch
+#              replacePrefixMatch: /
       backendRefs:
-        - name: foo-es-http
-          namespace: elastic
+        - name: ${instance_name}-es-http
+          namespace: ${namespace_name}
           port: 9200
 
+
+#---
+#apiVersion: gateway.networking.k8s.io/v1
+#kind: HTTPRoute
+#metadata:
+#  name: elastic
+#spec:
+#  parentRefs:
+#    - name: frontend
+#      namespace: networking
+#      sectionName: elastic-https
+#  hostnames:
+#    - k8s-search.symplectic.internal
+#  rules:
+#    - matches:
+#        - path:
+#            type: PathPrefix
+#            value: /
+##            value: /es
+##      filters:
+##        - type: URLRewrite
+##          urlRewrite:
+##            path:
+##              type: ReplacePrefixMatch
+##              replacePrefixMatch: /
+#      backendRefs:
+#        - name: ${instance_name}-es-https
+#          namespace: ${namespace_name}
+#          port: 9200
 
 ---
 apiVersion: gateway.networking.k8s.io/v1alpha3
