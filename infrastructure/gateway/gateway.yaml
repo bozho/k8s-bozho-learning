@@ -43,7 +43,7 @@ spec:
   parentRefs:
     - name: ${gateway_name}
       namespace: ${namespace_name}
-      sectionName: http
+      sectionName: http2
   rules:
     - filters:
       - type: RequestRedirect

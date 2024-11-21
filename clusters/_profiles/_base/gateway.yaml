@@ -25,14 +25,14 @@ spec:
     - target:
         kind: Gateway
 #        name: frontend
-        #name: ${gateway_name}
+        name: $${gateway_name}
       patch: |-
         kind: Gateway
         metadata:
           name: _
         spec:
           listeners:
-            - name: http
+            - name: http2
               port: 80
               protocol: HTTP
               allowedRoutes:
