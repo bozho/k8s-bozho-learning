@@ -41,8 +41,10 @@ metadata:
   name: http-redirect
 spec:
   parentRefs:
-    - name: ${gateway_name}
-      namespace: ${gateway_namespace}
+#    - name: ${gateway_name}
+#      namespace: ${gateway_namespace}
+    - name: frontend
+      namespace: networking
       sectionName: http
   rules:
     - filters:
