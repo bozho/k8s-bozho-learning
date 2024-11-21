@@ -94,12 +94,12 @@ metadata:
 spec:
   targetRefs:
     - kind: Service
-      #name: ${instance_name}-es-http
-      name: foo-es-http
+      name: ${instance_name}-es-http
+      #name: foo-es-http
       group: ""
   validation:
     caCertificateRefs:
       - kind: ConfigMap
         name: es-ca
         group: ""
-    hostname: foo-es-http.elastic.es.local
+    hostname: ${instance_name}-es-http.elastic.es.local
