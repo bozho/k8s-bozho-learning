@@ -40,7 +40,8 @@ spec:
                 namespaces:
                   from: Selector
                   selector:
-                    app.kubernetes.io/name: podinfo
+                    matchLabels:
+                      app.kubernetes.io/name: podinfo
             - name: https
               port: 443
               protocol: HTTPS
@@ -49,7 +50,8 @@ spec:
                 namespaces:
                   from: Selector
                   selector:
-                    app.kubernetes.io/name: podinfo
+                    matchLabels:
+                      app.kubernetes.io/name: podinfo
               tls:
                 mode: Terminate
                 certificateRefs:
