@@ -36,7 +36,7 @@ spec:
   parentRefs:
     - name: ${gateway_name}
       namespace: ${gateway_namespace}
-      sectionName: podinfo-https
+#      sectionName: podinfo-https
   hostnames:
     - podinfo.symplectic.internal
   rules:
