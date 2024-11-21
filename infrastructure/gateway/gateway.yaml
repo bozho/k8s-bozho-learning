@@ -43,9 +43,7 @@ spec:
   parentRefs:
     - name: ${gateway_name}
       namespace: ${namespace_name}
-#    - name: frontend
-#      namespace: networking
-      sectionName: http4
+      sectionName: http
   rules:
     - filters:
       - type: RequestRedirect
