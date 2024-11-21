@@ -45,7 +45,7 @@ spec:
 #      namespace: ${gateway_namespace}
     - name: frontend
       namespace: networking
-      sectionName: http
+      sectionName: http2
   rules:
     - filters:
       - type: RequestRedirect
