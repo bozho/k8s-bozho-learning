@@ -38,14 +38,14 @@ spec:
               hostname: podinfo.symplectic.internal
               allowedRoutes:
                 namespaces:
-                  from: All
+                  from: podinfo
             - name: https
               port: 443
               protocol: HTTPS
               hostname: podinfo.symplectic.internal
               allowedRoutes:
                 namespaces:
-                  from: All
+                  from: podinfo
               tls:
                 mode: Terminate
                 certificateRefs:
