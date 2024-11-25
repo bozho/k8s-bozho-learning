@@ -11,7 +11,7 @@ spec:
     server: https://is-ca-server.symplectic.internal/acme/acme/directory
     skipTLSVerify: true # Should use the CA bundle instead.
     privateKeySecretRef:
-      name: ${issuer_name}-cert-issuer-key
+      name: cert-issuer-key-${issuer_name}
     solvers:
       - http01:
           gatewayHTTPRoute:
