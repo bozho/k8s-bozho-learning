@@ -28,7 +28,7 @@ spec:
 #        name: $${gateway_name}
       patch: |-
         - op: add
-          path: /spec/listeners/-
+          path: /spec/listeners
           value:
             - name: podinfo-https
               port: 443
