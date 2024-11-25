@@ -44,25 +44,20 @@ spec:
                 mode: Terminate
                 certificateRefs:
                   - name: podinfo-cert
-    - target:
-        kind: Gateway
-        name: frontend
-#        name: $${gateway_name}
-      patch: |-
-        - op: add
-          path: /spec/listeners/-
-          value:
-            - name: elastic-https
-              port: 443
-              protocol: HTTPS
-              hostname: k8s-search.symplectic.internal
-              allowedRoutes:
-                namespaces:
-                  from: All
-              tls:
-                mode: Terminate
-                certificateRefs:
-                  - name: elastic-cert
+#        - op: add
+#          path: /spec/listeners/-
+#          value:
+#            - name: elastic-https
+#              port: 443
+#              protocol: HTTPS
+#              hostname: k8s-search.symplectic.internal
+#              allowedRoutes:
+#                namespaces:
+#                  from: All
+#              tls:
+#                mode: Terminate
+#                certificateRefs:
+#                  - name: elastic-cert
 
 
 #      patch: |-
