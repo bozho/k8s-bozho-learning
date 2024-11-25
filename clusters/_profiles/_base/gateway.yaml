@@ -26,7 +26,7 @@ spec:
         kind: Gateway
         name: frontend
 #        name: $${gateway_name}
-      patch: |-
+      patch: |
         - op: add
           path: /spec/listeners/1
           value:
