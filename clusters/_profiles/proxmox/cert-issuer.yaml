@@ -19,3 +19,6 @@ spec:
   postBuild:
     substitute:
       namespace_name: networking
+    substituteFrom:
+      - kind: ConfigMap
+        name: cluster-vars
