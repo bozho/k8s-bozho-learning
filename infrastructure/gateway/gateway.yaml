@@ -2,8 +2,8 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: ${gateway_name}
-#  name: frontend
+  #name: ${gateway_name}
+  name: frontend
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
@@ -43,7 +43,7 @@ spec:
   parentRefs:
     - name: ${gateway_name}
       namespace: ${namespace_name}
-      sectionName: http2
+      sectionName: http
   rules:
     - filters:
       - type: RequestRedirect

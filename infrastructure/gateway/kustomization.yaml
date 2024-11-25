@@ -9,27 +9,41 @@ resources:
 #  - target:
 #      kind: Gateway
 #      name: frontend
+#      #name: $${gateway_name}
 #    patch: |-
 #      kind: Gateway
 #      metadata:
 #        name: _
 #      spec:
 #        listeners:
-#          - name: http
+#          - name: http2
 #            port: 80
 #            protocol: HTTP
-#            hostname: podinfo.symplectic.internal
 #            allowedRoutes:
 #              namespaces:
 #                from: All
-#          - name: https
+#          - name: podinfo-https
 #            port: 443
 #            protocol: HTTPS
 #            hostname: podinfo.symplectic.internal
+#            allowedRoutes:
+#              namespaces:
+#                from: Selector
+#                selector:
+#                  matchLabels:
+#                    app.kubernetes.io/name: podinfo
+#            tls:
+#              mode: Terminate
+#              certificateRefs:
+#                - name: podinfo-cert
+#          - name: elastic-https
+#            port: 443
+#            protocol: HTTPS
+#            hostname: k8s-search.symplectic.internal
 #            allowedRoutes:
 #              namespaces:
 #                from: All
 #            tls:
 #              mode: Terminate
 #              certificateRefs:
-#                - name: podinfo-cert
+#                - name: elastic-cert
