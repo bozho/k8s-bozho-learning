@@ -9,7 +9,7 @@ metadata:
 spec:
   gatewayClassName: nginx
   listeners:
-    - name: dummy
+    - name: http
       port: 80
       protocol: HTTP
       allowedRoutes:
