@@ -6,5 +6,31 @@ components:
 resources:
   - metallb.yaml
   - storage-config.yaml
+  - cert-issuer.yaml
   - storage.yaml
   - podinfo.yaml
+
+patches:
+  - target:
+      kind: Kustomization
+      name: cert-issuer
+    patch: |-
+      kind: Kustomization
+      metadata:
+        name: _
+      spec:
+        postBuild:
+          substitute:
+            issuer_name: letsencrypt
+
+  - target:
+      kind: Kustomization
+      name: gateway
+    patch: |-
+      kind: Kustomization
+      metadata:
+        name: _
+      spec:
+        postBuild:
+          substitute:
+            issuer_name: letsencrypt

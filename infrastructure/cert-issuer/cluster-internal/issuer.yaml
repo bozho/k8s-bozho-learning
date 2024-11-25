@@ -2,7 +2,7 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt
+  name: ${issuer_name}
 spec:
   acme:
     # Replace the email address with your own contact email
@@ -11,7 +11,7 @@ spec:
     server: https://is-ca-server.symplectic.internal/acme/acme/directory
     skipTLSVerify: true # Should use the CA bundle instead.
     privateKeySecretRef:
-      name: letsencrypt-nginx
+      name: ${issuer_name}-nginx
     solvers:
       - http01:
           gatewayHTTPRoute:

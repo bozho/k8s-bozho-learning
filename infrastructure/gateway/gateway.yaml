@@ -5,7 +5,7 @@ metadata:
   #name: ${gateway_name}
   name: frontend
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/cluster-issuer: ${issuer_name}
 spec:
   gatewayClassName: nginx
   listeners:
