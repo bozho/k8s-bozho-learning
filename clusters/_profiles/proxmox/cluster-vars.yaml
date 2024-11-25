@@ -5,4 +5,4 @@ metadata:
   name: cluster-vars
   namespace: flux-system
 data:
-  issuer_name: letsencrypt
+  issuer_name: internal
