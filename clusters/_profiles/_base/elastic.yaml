@@ -26,6 +26,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
+    - name: kyverno-roles
     - name: gateway-api
     - name: elastic-operator
   interval: 5m

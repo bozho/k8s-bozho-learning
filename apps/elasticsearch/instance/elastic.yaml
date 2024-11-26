@@ -103,3 +103,29 @@ spec:
         name: es-ca
         group: ""
     hostname: ${instance_name}-es-http.elastic.es.local
+
+---
+apiVersion: kyverno.io/v1
+kind: Policy
+metadata:
+  name: sync-es-ca
+spec:
+  rules:
+    - name: sync-es-ca
+      match:
+        any:
+          - resources:
+              kinds:
+                - Secret
+              names:
+                - "*-es-http-certs-public"
+      generate:
+        synchronise: true
+        apiVersion: v1
+        kind: ConfigMap
+        name: "{{ request.object.metadata.name}}-sync-test"
+        namespace: "{{ request.object.metadata.namespace }}"
+        data:
+          kind: ConfigMap
+          data:
+            ca.crt: "foooooo"
