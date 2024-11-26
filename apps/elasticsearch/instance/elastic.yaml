@@ -120,7 +120,7 @@ spec:
               names:
                 - "*-es-http-certs-public"
       generate:
-        synchronise: true
+        synchronize: true
         apiVersion: v1
         kind: ConfigMap
         name: "{{ request.object.metadata.name}}-sync-test"
