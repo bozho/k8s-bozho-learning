@@ -126,11 +126,11 @@ spec:
         generateExisting: true
         apiVersion: v1
         kind: ConfigMap
-        name: "{{ request.object.metadata.name }}-sync-test"
+        name: es-ca
+        #name: "{{ request.object.metadata.name }}-sync-test"
         #namespace: "{{request.namespace}}"
         namespace: elastic
         data:
           kind: ConfigMap
           data:
             ca.crt: "{{ request.object.data.\"ca.crt\" | base64_decode(@) }}"
-            foo: baza
