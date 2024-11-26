@@ -110,6 +110,7 @@ kind: Policy
 metadata:
   name: sync-es-ca
 spec:
+  generateExisting: true
   useServerSideApply: true
   rules:
     - name: sync-es-ca
