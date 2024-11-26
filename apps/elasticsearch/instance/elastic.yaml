@@ -100,20 +100,21 @@ spec:
   validation:
     caCertificateRefs:
       - kind: ConfigMap
-        name: es-ca
+        name: ${instance_name}-es-root-cert
         group: ""
     hostname: ${instance_name}-es-http.elastic.es.local
 
 ---
+# Generates a ConfigMap with ES root certficate to be used by the BackendTLSPolicy above.
 apiVersion: kyverno.io/v1
 #kind: ClusterPolicy
 kind: Policy
 metadata:
-  name: sync-es-ca
+  name: sync-es-root-cert
 spec:
   useServerSideApply: true
   rules:
-    - name: sync-es-ca
+    - name: sync-es-root-cert
       match:
         any:
           - resources:
@@ -126,10 +127,10 @@ spec:
         generateExisting: true
         apiVersion: v1
         kind: ConfigMap
-        name: es-ca
+        name: ${instance_name}-es-root-cert
         #name: "{{ request.object.metadata.name }}-sync-test"
         #namespace: "{{request.namespace}}"
-        namespace: elastic
+        namespace: ${namespace_name}
         data:
           kind: ConfigMap
           data:
