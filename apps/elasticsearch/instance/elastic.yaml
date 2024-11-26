@@ -106,7 +106,7 @@ spec:
 
 ---
 apiVersion: kyverno.io/v1
-kind: Policy
+kind: ClusterPolicy
 metadata:
   name: sync-es-ca
 spec:
