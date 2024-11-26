@@ -110,7 +110,6 @@ kind: Policy
 metadata:
   name: sync-es-ca
 spec:
-  generateExisting: true
   useServerSideApply: true
   rules:
     - name: sync-es-ca
@@ -123,6 +122,7 @@ spec:
                 - "*-es-http-certs-public"
       generate:
         synchronize: true
+        generateExisting: true
         apiVersion: v1
         kind: ConfigMap
         name: "{{ request.object.metadata.name}}-sync-test"
