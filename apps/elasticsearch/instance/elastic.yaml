@@ -131,5 +131,5 @@ spec:
         data:
           kind: ConfigMap
           data:
-            ca.crt: "{{ request.object.data.\"ca.crt\" }}"
-            foo: bar
+            ca.crt: "{{ request.object.data.\"ca.crt\" | base64_decode(@) }}"
+            foo: baz
