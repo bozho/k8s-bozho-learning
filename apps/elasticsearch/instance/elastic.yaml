@@ -126,8 +126,7 @@ spec:
         apiVersion: v1
         kind: ConfigMap
         name: "{{ request.object.metadata.name}}-sync-test"
-        namespace: "{{ request.object.metadata.namespace }}"
-        #namespace: elastic
+        namespace: ${namespace_name}
         data:
           kind: ConfigMap
           data:
