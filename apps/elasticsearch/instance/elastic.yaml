@@ -125,8 +125,8 @@ spec:
         generateExisting: true
         apiVersion: v1
         kind: ConfigMap
-        name: "{{ request.object.metadata.name}}-sync-test"
-        namespace: ${namespace_name}
+        name: "{{ request.object.metadata.name }}-sync-test"
+        namespace: "{{ request.namespace }}"
         data:
           kind: ConfigMap
           data:
