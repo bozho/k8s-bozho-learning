@@ -30,7 +30,7 @@ spec:
     - target:
         kind: Gateway
 #        name: frontend
-        name: \\$${gateway_name}
+        name: \$${gateway_name}
       patch: |-
         - op: add
           path: /spec/listeners/-
