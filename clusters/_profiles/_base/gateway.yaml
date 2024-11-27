@@ -4,6 +4,8 @@ kind: Kustomization
 metadata:
   name: gateway
   namespace: flux-system
+  annotations:
+    kustomize.toolkit.fluxcd.io/substitute: disabled
 spec:
   dependsOn:
     - name: gateway-api
@@ -28,7 +30,7 @@ spec:
     - target:
         kind: Gateway
 #        name: frontend
-        name: \$${gateway_name}
+        name: \\$${gateway_name}
       patch: |-
         - op: add
           path: /spec/listeners/-
