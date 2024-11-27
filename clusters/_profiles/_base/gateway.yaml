@@ -27,8 +27,8 @@ spec:
   patches:
     - target:
         kind: Gateway
-        name: frontend
-#        name: $${gateway_name}
+#        name: frontend
+        name: \$${gateway_name}
       patch: |-
         - op: add
           path: /spec/listeners/-
