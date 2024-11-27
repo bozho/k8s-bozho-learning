@@ -9,7 +9,7 @@ metadata:
 spec:
   gatewayClassName: nginx
   listeners:
-    - name: http
+    - name: http2
       port: 80
       protocol: HTTP
       allowedRoutes:
@@ -25,7 +25,7 @@ spec:
   parentRefs:
     - name: ${gateway_name}
       namespace: ${namespace_name}
-      sectionName: http
+      sectionName: http2
   rules:
     - filters:
       - type: RequestRedirect
