@@ -5,29 +5,29 @@ components:
   - ../_profiles/proxmox
 resources: []
 
-#patches:
-#  - target:
-#      kind: Kustomization
-#      name: metallb
-#    patch: |-
-#      kind: Kustomization
-#      metadata:
-#        name: _
-#      spec:
-#        patches:
-#          - target:
-#              kind: IPAddressPool
-#            patch: |-
-#              apiVersion: metallb.io/v1beta1
-#              kind: IPAddressPool
-#              metadata:
-#                name: _
-#              spec:
-#                avoidBuggyIPs: true
-#                addresses:
-#                  - 10.20.30.207/32
-#                  - 10.20.30.208/32
-#                  - 10.20.30.209/32
+patches:
+  - target:
+      kind: Kustomization
+      name: metallb
+    patch: |-
+      kind: Kustomization
+      metadata:
+        name: _
+      spec:
+        patches:
+          - target:
+              kind: IPAddressPool
+            patch: |-
+              apiVersion: metallb.io/v1beta1
+              kind: IPAddressPool
+              metadata:
+                name: _
+              spec:
+                avoidBuggyIPs: true
+                addresses:
+                  - 10.20.30.207/32
+                  - 10.20.30.208/32
+                  - 10.20.30.209/32
 
 #  - target:
 #      kind: Kustomization
