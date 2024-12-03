@@ -4,8 +4,7 @@ kind: IPAddressPool
 metadata:
   name: load-balancer
 spec:
-  addresses: #[]
-    - 10.20.30.207/32
+  addresses: []
 
 ---
 apiVersion: metallb.io/v1beta1
