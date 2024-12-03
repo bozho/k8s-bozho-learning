@@ -4,9 +4,4 @@ kind: Component
 components:
   - ../_base
 resources:
-  - cluster-vars.yaml
   - metallb.yaml
-  - storage-config.yaml
-  - cert-issuer.yaml
-  - storage.yaml
-  - podinfo.yaml
