@@ -5,3 +5,6 @@ components:
   - ../_base
 resources:
   - metallb.yaml
+
+patches:
+  - path: metallb-patch.yaml
