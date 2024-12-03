@@ -5,6 +5,10 @@ components:
   - ../_profiles/proxmox
 resources: []
 
+patches:
+  - path: metallb-patch.yaml
+
+
 #patches:
 #  - target:
 #      kind: Kustomization
