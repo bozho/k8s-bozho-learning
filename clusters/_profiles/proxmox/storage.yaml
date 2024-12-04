@@ -1,0 +1,40 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: local-storage-config
+  namespace: storage
+data:
+  values.yaml: |
+    classes:
+      - name: elastic-data
+        hostDir: /mnt/disks
+        mountDir: /usr/share/elasticsearch/data
+
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: elastic-data
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: kubernetes.io/no-provisioner # indicates that this StorageClass does not support automatic provisioning
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: local-storage
+  namespace: flux-system
+spec:
+  interval: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+#  serviceAccountName: kustomize-controller
+  path: ./infrastructure/local-storage
+  prune: true
+  wait: true
+  timeout: 5m

@@ -8,3 +8,4 @@ resources:
   - ../_base
   - metallb.yaml
   - cert-issuer.yaml
+  - storage.yaml
