@@ -8,7 +8,7 @@ resources:
   - namespaces.yaml
   - kyverno.yaml
   - gateway-api.yaml
-#  - nginx-gateway-fabric.yaml
+  - nginx-gateway-fabric.yaml
 #  - gateway.yaml
 #  - cert-manager.yaml
 #  - elastic.yaml
