@@ -1,0 +1,4 @@
+namespace:
+  - kind: HTTPRoute
+    path: spec/parentRefs/namespace
+    create: true

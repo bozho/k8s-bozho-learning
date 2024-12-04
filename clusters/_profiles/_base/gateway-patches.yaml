@@ -1,0 +1,43 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: gateway
+  namespace: flux-system
+spec:
+  patches:
+    - target:
+        kind: Gateway
+        name: frontend
+      patch: |-
+        - op: add
+          path: /spec/listeners/-
+          value:
+            name: podinfo-https
+            port: 443
+            protocol: HTTPS
+            hostname: podinfo.symplectic.internal
+            allowedRoutes:
+              namespaces:
+                from: Selector
+                selector:
+                  matchLabels:
+                    app.kubernetes.io/name: podinfo
+            tls:
+              mode: Terminate
+              certificateRefs:
+                - name: podinfo-cert
+        - op: add
+          path: /spec/listeners/-
+          value:
+            name: elastic-https
+            port: 443
+            protocol: HTTPS
+            hostname: k8s-search.symplectic.internal
+            allowedRoutes:
+              namespaces:
+                from: All
+            tls:
+              mode: Terminate
+              certificateRefs:
+                - name: elastic-cert
