@@ -10,7 +10,7 @@ resources:
   - gateway-api.yaml
   - nginx-gateway-fabric.yaml
   - gateway.yaml
-#  - cert-manager.yaml
+  - cert-manager.yaml
 #  - elastic.yaml
 
 
