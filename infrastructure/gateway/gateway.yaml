@@ -23,7 +23,7 @@ metadata:
 spec:
   parentRefs:
     - name: frontend
-      sectionName: https
+      sectionName: http
   rules:
     - filters:
       - type: RequestRedirect

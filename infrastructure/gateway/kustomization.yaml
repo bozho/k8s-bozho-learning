@@ -6,5 +6,4 @@ resources:
   - gateway.yaml
 
 configurations:
-  - namespace.yaml
-  - nameReference.yaml
+  - configurations.yaml
