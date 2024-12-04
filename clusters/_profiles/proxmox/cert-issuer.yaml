@@ -1,0 +1,33 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cert-issuer
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: cert-manager
+  interval: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+#  serviceAccountName: kustomize-controller
+  path: ./infrastructure/cert-issuer/cluster-internal
+  prune: true
+  wait: true
+  timeout: 5m
+
+  patches:
+    - target:
+        kind: ClusterIssuer
+        name: internal
+      patch: |-
+        - op: add
+          path: /spec/acme/solvers/-
+          value:
+            http01:
+              gatewayHTTPRoute:
+                parentRefs:
+                  - name: frontend
+                    namespace: networking
+                    kind: Gateway

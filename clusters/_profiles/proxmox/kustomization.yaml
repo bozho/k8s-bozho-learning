@@ -7,3 +7,4 @@ kind: Kustomization
 resources:
   - ../_base
   - metallb.yaml
+  - cert-issuer.yaml

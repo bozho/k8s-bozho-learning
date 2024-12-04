@@ -1,0 +1,19 @@
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: internal
+spec:
+  acme:
+    email: bozho@symplectic.co.uk
+    server: https://is-ca-server.symplectic.internal/acme/acme/directory
+    skipTLSVerify: true #TODO: Should use the CA bundle instead.
+    privateKeySecretRef:
+      name: cert-issuer-key-internal
+    solvers: []
+#      - http01:
+#          gatewayHTTPRoute:
+#            parentRefs:
+#              - name: frontend
+#                namespace: ${namespace_name}
+#                kind: Gateway
