@@ -13,7 +13,24 @@ spec:
         - op: add
           path /metadata/annotations
           value:
-            cert-manager.io/cluster-issuer: internal
+            test: interntal
+        - op: add
+          path: /spec/listeners/-
+          value:
+            name: podinfo-https
+            port: 443
+            protocol: HTTPS
+            hostname: podinfo.symplectic.internal
+            allowedRoutes:
+              namespaces:
+                from: Selector
+                selector:
+                  matchLabels:
+                    app.kubernetes.io/name: podinfo
+            tls:
+              mode: Terminate
+              certificateRefs:
+                - name: podinfo-cert
         - op: add
           path: /spec/listeners/-
           value:
