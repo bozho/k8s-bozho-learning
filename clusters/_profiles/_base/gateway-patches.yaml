@@ -13,7 +13,7 @@ spec:
         - op: add
           path /metadata/annotations
           value:
-            test: interntal
+            cert-manager.io~1cluster-issuer: internal
         - op: add
           path: /spec/listeners/-
           value:
