@@ -1,0 +1,14 @@
+namespace:
+  - kind: HTTPRoute
+    path: spec/rules/backendRefs/namespace
+    create: true
+
+  - kind: Policy
+    path: spec/rules/generate/namespace
+    create: true
+
+#nameReference:
+#  - kind: Gateway
+#    fieldSpecs:
+#      - kind: HTTPRoute
+#        path: spec/parentRefs/name

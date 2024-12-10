@@ -1,0 +1,168 @@
+---
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: ${elastic_instance_name}
+spec:
+  version: 8.15.3
+  http:
+    service:
+      spec:
+        type: ClusterIP
+  nodeSets:
+    - name: default
+      count: 3
+      config:
+        node.store.allow_mmap: false
+#    - name: masters
+#      count: 3
+#      config:
+#        node.roles: ["master"]
+#        xpack.ml.enabled: true
+#        node.store.allow_mmap: false
+#    - name: data
+#      count: 3
+#      config:
+#        node.roles: ["data", "ingest", "ml", "transform"]
+#        node.store.allow_mmap: false
+
+
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: elastic
+spec:
+  parentRefs:
+    - name: ${gateway_name}
+      namespace: ${gateway_namespace}
+      sectionName: elastic-https
+  hostnames:
+    - k8s-search.symplectic.internal
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+#            value: /es
+#      filters:
+#        - type: URLRewrite
+#          urlRewrite:
+#            path:
+#              type: ReplacePrefixMatch
+#              replacePrefixMatch: /
+      backendRefs:
+        - name: ${elastic_instance_name}-es-http
+##          namespace: ${namespace_name}
+          port: 9200
+
+
+#---
+#apiVersion: gateway.networking.k8s.io/v1
+#kind: HTTPRoute
+#metadata:
+#  name: elastic
+#spec:
+#  parentRefs:
+#    - name: frontend
+#      namespace: networking
+#      sectionName: elastic-https
+#  hostnames:
+#    - k8s-search.symplectic.internal
+#  rules:
+#    - matches:
+#        - path:
+#            type: PathPrefix
+#            value: /
+##            value: /es
+##      filters:
+##        - type: URLRewrite
+##          urlRewrite:
+##            path:
+##              type: ReplacePrefixMatch
+##              replacePrefixMatch: /
+#      backendRefs:
+#        - name: ${instance_name}-es-https
+#          namespace: ${namespace_name}
+#          port: 9200
+
+# BackendTLSPolicy adds trust for ES root certificate when HTTPRout are routing
+# to the ES HTTPS service.
+---
+apiVersion: gateway.networking.k8s.io/v1alpha3
+kind: BackendTLSPolicy
+metadata:
+  name: tls-upstream-elastic
+spec:
+  targetRefs:
+    - kind: Service
+      name: ${elastic_instance_name}-es-http
+      #name: foo-es-http
+      group: ""
+  validation:
+    caCertificateRefs:
+      - kind: ConfigMap
+        name: ${elastic_instance_name}-es-root-cert
+        group: ""
+    hostname: ${elastic_instance_name}-es-http.elastic.es.local
+
+# Generates a ConfigMap with ES root certficate to be used by the BackendTLSPolicy above.
+---
+apiVersion: kyverno.io/v1
+kind: Policy
+metadata:
+  name: sync-es-root-cert
+spec:
+  useServerSideApply: true
+  rules:
+    - name: sync-es-root-cert
+      match:
+        any:
+          - resources:
+              kinds:
+                - Secret
+              names:
+                - "*-es-http-certs-public"
+      generate:
+        synchronize: true
+        generateExisting: true
+        apiVersion: v1
+        kind: ConfigMap
+        name: ${elastic_instance_name}-es-root-cert
+##        namespace: ${namespace_name}
+        data:
+          kind: ConfigMap
+          data:
+            ca.crt: "{{ request.object.data.\"ca.crt\" | base64_decode(@) }}"
+            foo: bar
+
+
+
+#---
+#apiVersion: kyverno.io/v1
+#kind: Policy
+#metadata:
+#  name: example-policy
+#  namespace: example
+#spec:
+#  useServerSideApply: true
+#  rules:
+#    - name: example-rule
+#      match:
+#        any:
+#          - resources:
+#              kinds:
+#                - Secret
+#              names:
+#                - "example-secret"
+#      generate:
+#        synchronize: true
+#        generateExisting: true
+#        apiVersion: v1
+#        kind: ConfigMap
+#        name: example-config
+#        namespace: "{{request.namespace}}"
+#        data:
+#          kind: ConfigMap
+#          data:
+#            foo: bar
