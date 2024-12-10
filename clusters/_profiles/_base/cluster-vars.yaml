@@ -8,4 +8,4 @@ data:
   elastic_instance_name: search
   gateway_name: frontend
   gateway_namespace: networking
-  issuer_name: internal
+  cluster_issuer_name: internal

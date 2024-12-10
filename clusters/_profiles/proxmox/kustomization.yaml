@@ -12,21 +12,21 @@ resources:
   - cert-issuer.yaml
   - storage.yaml
 
-patches:
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      version: v1
-      kind: Kustomization
-      name: gateway
-    patch: |-
-      - op: add
-        path: /spec/patches/-
-        value:
-          target:
-            kind: Gateway
-            name: frontend
-          patch: |-
-            - op: add
-              path: /metadata/annotations/cert-manager.io~1cluster-issuer
-              value: internal
+#patches:
+#  - target:
+#      group: kustomize.toolkit.fluxcd.io
+#      version: v1
+#      kind: Kustomization
+#      name: gateway
+#    patch: |-
+#      - op: add
+#        path: /spec/patches/-
+#        value:
+#          target:
+#            kind: Gateway
+#            name: frontend
+#          patch: |-
+#            - op: add
+#              path: /metadata/annotations/cert-manager.io~1cluster-issuer
+#              value: internal
 #  - path: gateway-patches.yaml

@@ -14,5 +14,5 @@ resources:
   - cert-manager.yaml
   - elastic.yaml
 
-patches:
-  - path: gateway-patches.yaml
+#patches:
+#  - path: gateway-patches.yaml
