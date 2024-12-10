@@ -11,6 +11,27 @@ spec:
         name: frontend
       patch: |-
         - op: add
+          path /metadata/annotations
+          value:
+            cert-manager.io/cluster-issuer: internal
+        - op: add
+          path: /spec/listeners/-
+          value:
+            name: podinfo-https
+            port: 443
+            protocol: HTTPS
+            hostname: podinfo.symplectic.internal
+            allowedRoutes:
+              namespaces:
+                from: Selector
+                selector:
+                  matchLabels:
+                    app.kubernetes.io/name: podinfo
+            tls:
+              mode: Terminate
+              certificateRefs:
+                - name: podinfo-cert
+        - op: add
           path: /spec/listeners/-
           value:
             name: elastic-https
@@ -24,20 +45,3 @@ spec:
               mode: Terminate
               certificateRefs:
                 - name: elastic-cert
-#        - op: add
-#          path: /spec/listeners/-
-#          value:
-#            name: podinfo-https
-#            port: 443
-#            protocol: HTTPS
-#            hostname: podinfo.symplectic.internal
-#            allowedRoutes:
-#              namespaces:
-#                from: Selector
-#                selector:
-#                  matchLabels:
-#                    app.kubernetes.io/name: podinfo
-#            tls:
-#              mode: Terminate
-#              certificateRefs:
-#                - name: podinfo-cert
