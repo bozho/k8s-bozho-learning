@@ -12,8 +12,7 @@ spec:
       patch: |-
         - op: add
           path /metadata/annotations/cert-manager.io~1cluster-issuer
-          value:
-            internal
+          value: internal
         - op: add
           path: /spec/listeners/-
           value:
