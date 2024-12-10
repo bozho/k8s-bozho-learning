@@ -11,9 +11,9 @@ spec:
         name: frontend
       patch: |-
         - op: add
-          path /metadata/annotations
+          path /metadata/annotations/cert-manager.io~1cluster-issuer
           value:
-            cert-manager.io~1cluster-issuer: internal
+            internal
         - op: add
           path: /spec/listeners/-
           value:
