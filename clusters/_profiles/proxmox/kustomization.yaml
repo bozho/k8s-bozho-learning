@@ -4,10 +4,10 @@
 
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-components:
-  - ../_base
-resources:
+#components:
 #  - ../_base
+resources:
+  - ../_base
   - metallb.yaml
   - cert-issuer.yaml
   - storage.yaml
