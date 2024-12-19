@@ -1,5 +1,5 @@
 ---
-apiVersion: elasticsearch.k8s.elastic.co/v1
+apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana
 metadata:
   name: ${elastic_instance_name}
