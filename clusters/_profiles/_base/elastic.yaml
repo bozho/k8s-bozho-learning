@@ -42,7 +42,28 @@ spec:
     substituteFrom:
       - kind: ConfigMap
         name: cluster-vars
-#      instance_name: foo
-#      namespace_name: elastic
-#      gateway_name: frontend
-#      gateway_namespace: networking
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kibana
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: kyverno-config
+    - name: gateway-api
+    - name: elastic-operator
+  interval: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+#  serviceAccountName: kustomize-controller
+  path: ./apps/kibana
+  prune: true
+  wait: true
+  timeout: 5m
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: cluster-vars

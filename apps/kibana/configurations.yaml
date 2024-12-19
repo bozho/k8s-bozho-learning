@@ -2,7 +2,3 @@ namespace:
   - kind: HTTPRoute
     path: spec/rules/backendRefs/namespace
     create: true
-
-  - kind: Policy
-    path: spec/rules/generate/namespace
-    create: true
