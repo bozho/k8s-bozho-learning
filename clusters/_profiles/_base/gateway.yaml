@@ -61,3 +61,17 @@ spec:
               mode: Terminate
               certificateRefs:
                 - name: elastic-cert
+        - op: add
+          path: /spec/listeners/-
+          value:
+            name: kibana-https
+            port: 443
+            protocol: HTTPS
+            hostname: k8s-search-kibana.symplectic.internal
+            allowedRoutes:
+              namespaces:
+                from: All
+            tls:
+              mode: Terminate
+              certificateRefs:
+                - name: kibana-cert
