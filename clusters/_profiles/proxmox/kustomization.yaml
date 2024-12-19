@@ -19,7 +19,7 @@ patches:
     patch: |-
       - op: add
         path: /metadata/annotations/cert-manager.io~1cluster-issuer
-        value: ${cluster_issuer_name}aaa
+        value: ${cluster_issuer_name}
 
 #patches:
 #  - target:
